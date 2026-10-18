@@ -15,6 +15,7 @@ import {
   Bot,
   AlertTriangle
 } from 'lucide-react';
+import TiltCard from './zerogravity/TiltCard';
 
 export default function ProjectCard({ project, onOpenDetails }) {
   const isNetflix = project.id === 'netflixgpt';
@@ -23,7 +24,14 @@ export default function ProjectCard({ project, onOpenDetails }) {
   const isCivicCare = project.id === 'civiccare';
 
   return (
-    <div className="rounded-2xl bg-[#FFFFFF] dark:bg-[#1D1D1A] border border-[#E7E3D8] dark:border-[#34332E] hover:border-[#C49A2C] dark:hover:border-[#D4AF37] transition-all duration-200 shadow-2xs hover:shadow-xs overflow-hidden flex flex-col group">
+    <TiltCard
+      maxTilt={7}
+      perspective={1000}
+      liftZ={18}
+      scaleOnHover={1.012}
+      className="h-full rounded-2xl"
+    >
+      <div className="h-full rounded-2xl bg-[#FFFFFF] dark:bg-[#1D1D1A] border border-[#E7E3D8] dark:border-[#34332E] hover:border-[#C49A2C] dark:hover:border-[#D4AF37] transition-all duration-200 shadow-2xs hover:shadow-lg overflow-hidden flex flex-col group">
       
       {/* Visual Mockup Container (Clean Editorial Browser Frame) */}
       <div className="relative bg-[#FAFAF8] dark:bg-[#171716] border-b border-[#E7E3D8] dark:border-[#34332E] p-4 sm:p-5 overflow-hidden">
@@ -394,7 +402,7 @@ export default function ProjectCard({ project, onOpenDetails }) {
         </div>
 
       </div>
-
     </div>
-  );
+  </TiltCard>
+);
 }
