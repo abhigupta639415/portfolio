@@ -32,7 +32,7 @@ export const aboutData = {
   stats: [
     { value: "250+", label: "DSA Problems", subtext: "LeetCode Practice" },
     { value: "2", label: "Deployed Full-Stack Apps", subtext: "End-to-End MERN & AI" },
-    { value: "1", label: "Professional Internship", subtext: "Front-End Development" },
+    { value: "2", label: "Professional Internships", subtext: "Codveda & MLSA KIET" },
     { value: "AWS", label: "Certified Cloud Practitioner", subtext: "Cloud Fundamentals" }
   ]
 };
@@ -53,10 +53,14 @@ export const educationData = {
 
 export const experienceData = [
   {
+    id: "codveda-experience",
     company: "Codveda Technologies",
     position: "Front-End Development Intern",
+    employmentType: "Internship",
     duration: "Nov 2025 – Jan 2026",
+    durationLabel: "3 mos",
     location: "Remote / India",
+    workMode: "Remote",
     description: "Worked on an online restaurant food-delivery platform, developing reusable React components and responsive user interfaces across multiple pages and workflows.",
     achievements: [
       "Engineered 12+ reusable React.js components, improving maintainability and reducing UI development time by 30%.",
@@ -81,6 +85,48 @@ export const experienceData = [
         "Completion of assignments and challenges"
       ],
       certificateImage: "/certificates/codveda-web-development-internship.png",
+      hasCertificate: true
+    }
+  },
+  {
+    id: "mlsa-experience",
+    company: "MLSA KIET",
+    position: "Full Stack Web Development Intern",
+    employmentType: "Internship",
+    duration: "Apr 2025 – Jun 2025",
+    durationLabel: "3 mos",
+    programNote: "100-hour Full Stack Web Development Internship",
+    location: "Ghaziabad, Uttar Pradesh, India",
+    workMode: "Remote",
+    description: "Completed a 100-hour Full Stack Web Development internship offered by MLSA KIET, gaining hands-on experience in frontend and backend web development and contributing to a real GitHub-based development workflow.",
+    achievements: [
+      "Gained hands-on experience in frontend and backend web development using HTML, CSS, JavaScript, React.js, Node.js, Express.js, and MongoDB.",
+      "Built and enhanced web application features while following Git and GitHub-based development workflows.",
+      "Contributed to the official MLSA KIET GitHub repository and successfully submitted a Pull Request as part of the internship.",
+      "Strengthened practical skills in REST APIs, responsive UI development, debugging, and version control."
+    ],
+    technologies: [
+      "React.js",
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "REST APIs",
+      "Git",
+      "GitHub"
+    ],
+    certificate: {
+      id: "mlsa-internship",
+      title: "100-Hour Full Stack Web Development Internship",
+      organization: "MLSA KIET",
+      duration: "Apr 2025 – Jun 2025",
+      issueDate: "Apr 2025 – Jun 2025 · 3 mos",
+      badge: "Verified Internship",
+      type: "Internship / Experience",
+      description: "Successfully completed the 100-hour internship offered by MLSA KIET in the Full Stack Web Development domain and successfully submitted the Pull-Request on the MLSA KIET GitHub repository.",
+      certificateImage: "/certificates/mlsa-full-stack-internship.png",
       hasCertificate: true
     }
   }
@@ -347,12 +393,12 @@ export const credentialsData = {
           badge: "100-Hour Program",
           type: "Internship / Experience",
           iconType: "Briefcase",
-          issueDate: "Completed",
+          issueDate: "Apr 2025 – Jun 2025",
+          duration: "Apr 2025 – Jun 2025",
           description: "Successfully completed a 100-hour internship offered by MLSA KIET in the Full Stack Web Development domain, gaining hands-on experience in developing end-to-end web applications.",
           additionalAchievement: "Successfully submitted a Pull Request to the official MLSA KIET GitHub repository as part of the program.",
           certificateImage: "/certificates/mlsa-full-stack-internship.png",
           hasCertificate: true,
-          isPendingUpload: false,
           actionButtons: [
             { label: "View Certificate", action: "preview", primary: true }
           ]

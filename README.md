@@ -33,7 +33,13 @@ Live Preview & Production Build:
      - *250+ LeetCode Problems* (DSA & algorithmic problem solving)
    - **Reusable CertificateModal**: High-resolution image preview, responsive design, ESC/backdrop dismissal, zoom controls, download options, and direct verification URLs.
 
-3. **Featured Projects (Production Live Deployments)**:
+3. **Work Experience (Reverse Chronological)**:
+   - **Codveda Technologies** (Front-End Development Intern | Nov 2025 – Jan 2026):
+     - Quantified impact: 12+ reusable React components, 30% reduction in development time, 15+ responsive pages, 20% bug reduction.
+     - Direct *View Certificate* button.
+   - **MLSA KIET** (Full Stack Web Development Intern | Apr 2025 – Jun 2025 · 3 mos):
+     - 100-hour Full Stack Web Development internship; official MLSA KIET GitHub repository Pull Request contribution.
+     - Direct *View Certificate* button.
    - **NetflixGPT**: AI-powered movie discovery platform integrating OpenAI GPT API, Firebase Auth, TMDB API, and Redux Toolkit.
      - *Performance:* ~31% initial bundle size reduction via route-level code splitting (`React.lazy()` & `Suspense`).
      - *Live Demo:* [netflixgpt-khaki.vercel.app](https://netflixgpt-khaki.vercel.app/)

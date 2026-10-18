@@ -88,7 +88,7 @@ export default function RecruiterQuickView({ onOpenResume }) {
               </span>
               <span className="px-2.5 py-1 rounded-md bg-slate-800/80 text-slate-300 border border-white/5 flex items-center gap-1.5">
                 <Briefcase className="w-3.5 h-3.5 text-emerald-400" />
-                Frontend Intern (Codveda)
+                2 Internships (Codveda & MLSA)
               </span>
             </div>
           </div>

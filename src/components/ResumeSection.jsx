@@ -43,7 +43,7 @@ export default function ResumeSection({ onOpenResume }) {
             <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs font-mono text-slate-400 mb-9">
               <span className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-3.5 h-3.5 text-sky-400" />
-                Codveda Tech Internship
+                2 Internships (Codveda & MLSA)
               </span>
               <span className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-3.5 h-3.5 text-sky-400" />
@@ -55,7 +55,7 @@ export default function ResumeSection({ onOpenResume }) {
               </span>
               <span className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-3.5 h-3.5 text-sky-400" />
-                AWS Certified
+                AWS & Cisco Certified
               </span>
             </div>
 
