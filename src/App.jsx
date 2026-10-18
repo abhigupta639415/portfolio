@@ -1,22 +1,20 @@
 import React, { useState } from 'react';
+import { ThemeProvider } from './context/ThemeContext';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import RecruiterQuickView from './components/RecruiterQuickView';
 import About from './components/About';
-import Experience from './components/Experience';
-import Education from './components/Education';
-import Specializations from './components/Specializations';
 import Projects from './components/Projects';
+import Experience from './components/Experience';
 import Skills from './components/Skills';
-import ProblemSolving from './components/ProblemSolving';
+import Certifications from './components/Certifications';
 import Achievements from './components/Achievements';
-import ResumeSection from './components/ResumeSection';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ResumeModal from './components/ResumeModal';
 import CertificateModal from './components/CertificateModal';
 
-export default function App() {
+function PortfolioApp() {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
   const [selectedCertificate, setSelectedCertificate] = useState(null);
 
@@ -37,54 +35,45 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FDFBD4] text-[#171717] relative selection:bg-gold/30 selection:text-neutralDark-primary">
+    <div className="min-h-screen bg-[#FAFAF8] text-[#171717] dark:bg-[#0F0F0E] dark:text-[#F5F3EA] relative transition-colors duration-250">
       
-      {/* Navigation Header */}
+      {/* Sticky Minimal Navbar */}
       <Navbar onOpenResume={handleOpenResume} />
 
-      {/* Main Content Area */}
+      {/* Main Content Area - Exact 10-Step Page Order (Requirement #38) */}
       <main id="main-content">
-        {/* 1. Hero Section */}
+        {/* 1. Hero */}
         <Hero onOpenResume={handleOpenResume} />
 
-        {/* Recruiter Fast-Track Bar */}
-        <RecruiterQuickView onOpenResume={handleOpenResume} />
+        {/* 2. Quick Credentials */}
+        <RecruiterQuickView />
 
-        {/* 2. About Me */}
+        {/* 3. About */}
         <About />
 
-        {/* 3. Work Experience */}
-        <Experience onOpenCertificate={handleOpenCertificate} />
-
-        {/* 4. Education */}
-        <Education />
-
-        {/* 5. What I Build / Specializations */}
-        <Specializations />
-
-        {/* 6. Featured Projects */}
+        {/* 4. Projects */}
         <Projects />
 
-        {/* 7. Technical Skills */}
+        {/* 5. Experience */}
+        <Experience onOpenCertificate={handleOpenCertificate} />
+
+        {/* 6. Skills */}
         <Skills />
 
-        {/* 8. Problem Solving */}
-        <ProblemSolving />
+        {/* 7. Certifications */}
+        <Certifications onOpenCertificate={handleOpenCertificate} />
 
-        {/* 9. Certifications & Achievements (Credentials) */}
+        {/* 8. Achievements */}
         <Achievements onOpenCertificate={handleOpenCertificate} />
 
-        {/* 10. Resume Call-to-Action */}
-        <ResumeSection onOpenResume={handleOpenResume} />
-
-        {/* 11. Contact */}
+        {/* 9. Contact */}
         <Contact />
       </main>
 
-      {/* Footer */}
-      <Footer />
+      {/* 10. Footer */}
+      <Footer onOpenResume={handleOpenResume} />
 
-      {/* Interactive Resume Modal / Viewer */}
+      {/* Interactive Resume Modal */}
       <ResumeModal
         isOpen={isResumeOpen}
         onClose={handleCloseResume}
@@ -98,5 +87,13 @@ export default function App() {
       />
 
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <ThemeProvider>
+      <PortfolioApp />
+    </ThemeProvider>
   );
 }

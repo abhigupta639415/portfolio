@@ -1,16 +1,18 @@
 import React from 'react';
 import {
   ArrowDown,
-  FileText,
+  Download,
   Mail,
   Github,
   Linkedin,
   Code2,
-  CheckCircle2,
-  Terminal,
+  Layers,
   Sparkles,
-  Cloud,
-  Layers
+  Server,
+  Database,
+  ExternalLink,
+  ShieldCheck,
+  CheckCircle2
 } from 'lucide-react';
 import { personalInfo, heroData } from '../data/portfolioData';
 
@@ -18,143 +20,110 @@ export default function Hero({ onOpenResume }) {
   const scrollToSection = (id) => {
     const el = document.getElementById(id);
     if (el) {
-      const yOffset = -80;
+      const yOffset = -75;
       const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: 'smooth' });
     }
   };
 
+  const handleDownloadResume = () => {
+    const link = document.createElement('a');
+    link.href = personalInfo.resumePdfUrl;
+    link.download = 'Abhishek_Gupta_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <section
       id="hero"
-      className="relative min-h-[92vh] pt-32 pb-20 flex items-center justify-center bg-[#FDFBD4] overflow-hidden"
+      className="relative pt-32 pb-16 md:pt-40 md:pb-24 flex items-center justify-center overflow-hidden"
     >
-      {/* Subtle abstract geometric elements in #BDB76B, #D4AF37, #CE8946 */}
-      <div className="absolute top-12 left-10 w-72 h-72 rounded-full bg-[#BDB76B]/15 blur-3xl pointer-events-none" />
-      <div className="absolute top-1/3 right-10 w-96 h-96 rounded-full bg-[#D4AF37]/15 blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 left-1/3 w-64 h-64 rounded-full bg-[#CE8946]/10 blur-2xl pointer-events-none" />
-
-      {/* Decorative hairline grid */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-20"
-        style={{
-          backgroundImage: 'linear-gradient(to right, rgba(189, 183, 107, 0.35) 1px, transparent 1px), linear-gradient(to bottom, rgba(189, 183, 107, 0.35) 1px, transparent 1px)',
-          backgroundSize: '48px 48px'
-        }}
-      />
+      {/* Subtle, minimal ambient glow */}
+      <div className="absolute top-16 left-1/4 w-96 h-96 rounded-full bg-[#C49A2C]/5 dark:bg-[#D4AF37]/5 blur-3xl pointer-events-none" />
+      <div className="absolute top-1/3 right-1/4 w-80 h-80 rounded-full bg-[#CE8946]/5 blur-3xl pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
-          {/* Left Column: Headline, Bio & Action Buttons */}
+          {/* Left Column: Authentic Typography & Calls to Action */}
           <div className="lg:col-span-7 flex flex-col items-start text-left">
             
-            {/* Status Pill */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] border border-[#BDB76B]/40 shadow-sm mb-6">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#CE8946] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#D4AF37]"></span>
-              </span>
-              <span className="text-xs font-mono font-semibold text-[#24221D]">
-                Available for Software Engineering Roles & Internships
-              </span>
+            {/* Eyebrow */}
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#F4E8C1] dark:bg-[#29281F] border border-[#E7E3D8] dark:border-[#34332E] text-xs font-mono font-semibold text-[#171717] dark:text-[#F5F3EA] mb-5 tracking-wider uppercase">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#C49A2C] dark:bg-[#D4AF37] animate-pulse" />
+              <span>{heroData.eyebrow}</span>
             </div>
 
-            {/* Main Greeting & Name */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#171717] mb-4">
-              <span className="block text-[#5F5B50] font-medium text-2xl sm:text-3xl mb-1">
-                Hi, I'm
-              </span>
-              <span className="text-[#D4AF37] underline decoration-[#CE8946]/40 underline-offset-8">
-                Abhishek Gupta.
-              </span>
+            {/* Main Heading */}
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#171717] dark:text-[#F5F3EA] mb-4 leading-[1.1]">
+              {heroData.name}
             </h1>
 
-            {/* Professional Headline */}
-            <h2 className="text-xl sm:text-2xl font-bold text-[#24221D] mb-5 leading-snug">
-              <span className="text-[#CE8946]">Full-Stack Developer</span> building scalable web applications with modern technologies and AI.
+            {/* Subheading */}
+            <h2 className="text-lg sm:text-xl md:text-2xl font-medium text-[#171717]/90 dark:text-[#F5F3EA]/90 mb-5 leading-snug max-w-2xl">
+              {heroData.subheading}
             </h2>
 
-            {/* Supporting Text */}
-            <p className="text-base sm:text-lg text-[#5F5B50] leading-relaxed mb-8 max-w-2xl font-normal">
-              {heroData.supportingText}
+            {/* Supporting Paragraph */}
+            <p className="text-sm sm:text-base text-[#66645F] dark:text-[#B7B4AA] leading-relaxed mb-8 max-w-xl font-normal">
+              {heroData.supportingParagraph}
             </p>
 
-            {/* Credibility Indicators */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-xl mb-9">
-              <div className="flex items-center gap-3 p-3.5 rounded-xl bg-[#FFFFFF] border border-[#BDB76B]/35 shadow-sm hover:border-[#D4AF37] transition-colors">
-                <div className="w-9 h-9 rounded-lg bg-[#FDFBD4] border border-[#BDB76B]/40 flex items-center justify-center shrink-0">
-                  <CheckCircle2 className="w-4 h-4 text-[#CE8946]" />
-                </div>
-                <div>
-                  <div className="text-sm font-bold text-[#171717] font-mono">2 Apps</div>
-                  <div className="text-xs text-[#5F5B50]">Deployed Full-Stack</div>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3 p-3.5 rounded-xl bg-[#FFFFFF] border border-[#BDB76B]/35 shadow-sm hover:border-[#D4AF37] transition-colors">
-                <div className="w-9 h-9 rounded-lg bg-[#FDFBD4] border border-[#BDB76B]/40 flex items-center justify-center shrink-0">
-                  <Code2 className="w-4 h-4 text-[#D4AF37]" />
-                </div>
-                <div>
-                  <div className="text-sm font-bold text-[#171717] font-mono">250+ Solved</div>
-                  <div className="text-xs text-[#5F5B50]">LeetCode DSA</div>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3 p-3.5 rounded-xl bg-[#FFFFFF] border border-[#BDB76B]/35 shadow-sm hover:border-[#D4AF37] transition-colors">
-                <div className="w-9 h-9 rounded-lg bg-[#FDFBD4] border border-[#BDB76B]/40 flex items-center justify-center shrink-0">
-                  <Cloud className="w-4 h-4 text-[#CE8946]" />
-                </div>
-                <div>
-                  <div className="text-sm font-bold text-[#171717] font-mono">AWS Certified</div>
-                  <div className="text-xs text-[#5F5B50]">Cloud Practitioner</div>
-                </div>
-              </div>
-            </div>
-
-            {/* CTAs */}
-            <div className="flex flex-wrap items-center gap-4 mb-9">
-              {/* Primary CTA */}
+            {/* Action Buttons */}
+            <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto mb-9">
+              {/* Primary CTA: View Projects */}
               <button
+                type="button"
                 onClick={() => scrollToSection('projects')}
-                className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#D4AF37] hover:bg-[#CE8946] text-[#171717] hover:text-white font-bold text-sm shadow-md transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-semibold text-xs sm:text-sm transition-all duration-150 cursor-pointer shadow-xs hover:shadow-md
+                  bg-[#C49A2C] hover:bg-[#CE8946] text-white
+                  dark:bg-[#D4AF37] dark:hover:bg-[#CE8946] dark:text-[#171717]"
               >
-                <span>View My Work</span>
+                <span>View Projects</span>
                 <ArrowDown className="w-4 h-4" />
               </button>
 
-              {/* Secondary CTA */}
+              {/* Secondary CTA: Download Resume */}
               <button
-                onClick={onOpenResume}
-                className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#FFFFFF] hover:bg-[#BDB76B]/20 border border-[#BDB76B] text-[#24221D] font-bold text-sm transition-all duration-200 shadow-sm"
+                type="button"
+                onClick={handleDownloadResume}
+                className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-semibold text-xs sm:text-sm transition-all duration-150 cursor-pointer
+                  bg-[#FFFFFF] dark:bg-[#1D1D1A] hover:bg-[#FAFAF8] dark:hover:bg-[#23231F]
+                  text-[#171717] dark:text-[#F5F3EA]
+                  border border-[#E7E3D8] dark:border-[#34332E] hover:border-[#C49A2C] dark:hover:border-[#D4AF37]
+                  shadow-2xs"
               >
-                <FileText className="w-4 h-4 text-[#CE8946]" />
+                <Download className="w-4 h-4 text-[#C49A2C] dark:text-[#D4AF37]" />
                 <span>Download Resume</span>
               </button>
 
-              {/* Third CTA */}
+              {/* Third CTA: Contact Me */}
               <button
+                type="button"
                 onClick={() => scrollToSection('contact')}
-                className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-transparent hover:bg-[#FFFFFF] border border-[#BDB76B] text-[#24221D] font-semibold text-sm transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl font-medium text-xs sm:text-sm transition-colors cursor-pointer
+                  text-[#66645F] dark:text-[#B7B4AA] hover:text-[#171717] dark:hover:text-[#F5F3EA]"
               >
-                <Mail className="w-4 h-4 text-[#5F5B50]" />
+                <Mail className="w-4 h-4" />
                 <span>Contact Me</span>
               </button>
             </div>
 
-            {/* Social Icons & Direct Links */}
-            <div className="flex items-center gap-3 pt-4 border-t border-[#BDB76B]/35 w-full max-w-xl">
-              <span className="text-xs font-mono text-[#5F5B50] uppercase tracking-wider font-semibold">
+            {/* Social Links */}
+            <div className="flex items-center gap-3 pt-4 border-t border-[#E7E3D8] dark:border-[#34332E] w-full max-w-md">
+              <span className="text-xs font-mono text-[#66645F] dark:text-[#B7B4AA] mr-1">
                 Connect:
               </span>
-              
+
               <a
                 href={personalInfo.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-xl bg-[#FFFFFF] border border-[#BDB76B]/40 text-[#24221D] hover:text-[#CE8946] hover:border-[#D4AF37] transition-all shadow-sm"
-                aria-label="GitHub Profile (opens in new tab)"
+                className="p-2 rounded-lg text-[#66645F] dark:text-[#B7B4AA] hover:text-[#171717] dark:hover:text-[#F5F3EA] border border-[#E7E3D8] dark:border-[#34332E] hover:border-[#C49A2C] dark:hover:border-[#D4AF37] bg-[#FFFFFF] dark:bg-[#1D1D1A] transition-colors"
+                title="GitHub Profile"
+                aria-label="GitHub Profile"
               >
                 <Github className="w-4 h-4" />
               </a>
@@ -163,8 +132,9 @@ export default function Hero({ onOpenResume }) {
                 href={personalInfo.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-xl bg-[#FFFFFF] border border-[#BDB76B]/40 text-[#24221D] hover:text-[#CE8946] hover:border-[#D4AF37] transition-all shadow-sm"
-                aria-label="LinkedIn Profile (opens in new tab)"
+                className="p-2 rounded-lg text-[#66645F] dark:text-[#B7B4AA] hover:text-[#C49A2C] dark:hover:text-[#D4AF37] border border-[#E7E3D8] dark:border-[#34332E] hover:border-[#C49A2C] dark:hover:border-[#D4AF37] bg-[#FFFFFF] dark:bg-[#1D1D1A] transition-colors"
+                title="LinkedIn Profile"
+                aria-label="LinkedIn Profile"
               >
                 <Linkedin className="w-4 h-4" />
               </a>
@@ -173,120 +143,118 @@ export default function Hero({ onOpenResume }) {
                 href={personalInfo.leetcode}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-xl bg-[#FFFFFF] border border-[#BDB76B]/40 text-[#24221D] hover:text-[#D4AF37] hover:border-[#D4AF37] transition-all shadow-sm"
-                aria-label="LeetCode Profile (opens in new tab)"
+                className="p-2 rounded-lg text-[#66645F] dark:text-[#B7B4AA] hover:text-[#CE8946] border border-[#E7E3D8] dark:border-[#34332E] hover:border-[#CE8946] bg-[#FFFFFF] dark:bg-[#1D1D1A] transition-colors"
+                title="LeetCode Profile (250+ Solved)"
+                aria-label="LeetCode Profile"
               >
                 <Code2 className="w-4 h-4" />
               </a>
 
               <a
                 href={`mailto:${personalInfo.email}`}
-                className="p-2 rounded-xl bg-[#FFFFFF] border border-[#BDB76B]/40 text-[#24221D] hover:text-[#CE8946] hover:border-[#D4AF37] transition-all shadow-sm"
+                className="p-2 rounded-lg text-[#66645F] dark:text-[#B7B4AA] hover:text-[#C49A2C] dark:hover:text-[#D4AF37] border border-[#E7E3D8] dark:border-[#34332E] hover:border-[#C49A2C] dark:hover:border-[#D4AF37] bg-[#FFFFFF] dark:bg-[#1D1D1A] transition-colors"
+                title="Send Email"
                 aria-label="Send Email"
               >
                 <Mail className="w-4 h-4" />
               </a>
-
-              <span className="text-xs font-mono text-[#5F5B50] ml-auto flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-[#D4AF37]"></span>
-                Ghaziabad, India
-              </span>
             </div>
 
           </div>
 
-          {/* Right Column: Editorial Dark Architecture Card for Contrast */}
+          {/* Right Column: Clean Visual Composition (Authentic Engineering Spotlight) */}
           <div className="lg:col-span-5 w-full">
-            <div className="relative rounded-2xl bg-[#24221D] border border-[#BDB76B]/40 shadow-2xl overflow-hidden group">
-              {/* Window Header */}
-              <div className="flex items-center justify-between px-4 py-3 bg-[#1B1915] border-b border-[#BDB76B]/25">
+            <div className="relative rounded-2xl bg-[#FFFFFF] dark:bg-[#1D1D1A] border border-[#E7E3D8] dark:border-[#34332E] p-6 sm:p-7 shadow-xs">
+              
+              {/* Header */}
+              <div className="flex items-center justify-between pb-4 border-b border-[#E7E3D8] dark:border-[#34332E] mb-5">
                 <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-[#CE8946]/80" />
-                  <div className="w-3 h-3 rounded-full bg-[#D4AF37]/80" />
-                  <div className="w-3 h-3 rounded-full bg-[#BDB76B]/80" />
-                </div>
-                <div className="flex items-center gap-1.5 text-[11px] font-mono text-[#FDFBD4]/70">
-                  <Terminal className="w-3.5 h-3.5 text-[#D4AF37]" />
-                  <span>abhishek.config.ts</span>
-                </div>
-                <div className="text-[10px] font-mono text-[#D4AF37] bg-[#D4AF37]/15 px-2 py-0.5 rounded border border-[#D4AF37]/30">
-                  VERIFIED
-                </div>
-              </div>
-
-              {/* Code Content */}
-              <div className="p-5 font-mono text-xs sm:text-sm leading-relaxed overflow-x-auto text-[#FDFBD4]">
-                <div className="text-[#BDB76B]">// Software Engineer Candidate Specification</div>
-                <div className="mt-1">
-                  <span className="text-[#D4AF37]">const</span>{' '}
-                  <span className="text-[#CE8946]">engineer</span>:{' '}
-                  <span className="text-[#FDFBD4] font-semibold">FullStackDeveloper</span> = {'{'}
-                </div>
-                
-                <div className="pl-4">
-                  <span className="text-[#BDB76B]">name:</span>{' '}
-                  <span className="text-[#FDFBD4]">"Abhishek Gupta"</span>,
-                </div>
-
-                <div className="pl-4">
-                  <span className="text-[#BDB76B]">education:</span> {'{'}
-                </div>
-                <div className="pl-8">
-                  <span className="text-[#BDB76B]">degree:</span>{' '}
-                  <span className="text-[#FDFBD4]">"B.Tech CSE (2023-2027)"</span>,
-                </div>
-                <div className="pl-8">
-                  <span className="text-[#BDB76B]">institution:</span>{' '}
-                  <span className="text-[#FDFBD4]">"KIET Group of Institutions"</span>
-                </div>
-                <div className="pl-4">{'}'},</div>
-
-                <div className="pl-4">
-                  <span className="text-[#BDB76B]">coreStack:</span> [
-                  <span className="text-[#D4AF37]">"React"</span>,{' '}
-                  <span className="text-[#D4AF37]">"Node.js"</span>,{' '}
-                  <span className="text-[#D4AF37]">"Express"</span>,{' '}
-                  <span className="text-[#D4AF37]">"MongoDB"</span>
-                  ],
-                </div>
-
-                <div className="pl-4">
-                  <span className="text-[#BDB76B]">aiIntegration:</span> [
-                  <span className="text-[#CE8946]">"OpenAI GPT"</span>,{' '}
-                  <span className="text-[#CE8946]">"Gemini Vision"</span>
-                  ],
-                </div>
-
-                <div className="pl-4">
-                  <span className="text-[#BDB76B]">internships:</span>{' '}
-                  <span className="text-[#D4AF37]">"Codveda & MLSA KIET"</span>,
-                </div>
-
-                <div className="pl-4">
-                  <span className="text-[#BDB76B]">problemSolving:</span>{' '}
-                  <span className="text-[#D4AF37]">"250+ LeetCode Solved"</span>,
-                </div>
-
-                <div className="pl-4">
-                  <span className="text-[#BDB76B]">certifications:</span>{' '}
-                  <span className="text-[#CE8946]">"AWS Cloud Practitioner, Cisco"</span>,
-                </div>
-
-                <div className="pl-4">
-                  <span className="text-[#BDB76B]">status:</span>{' '}
-                  <span className="text-[#D4AF37] font-bold">"Open to Opportunities"</span>
-                </div>
-
-                <div>{'}'};</div>
-
-                <div className="mt-4 pt-3 border-t border-[#BDB76B]/25 flex items-center justify-between text-xs text-[#FDFBD4]/70">
-                  <span className="flex items-center gap-1.5 text-[#D4AF37] font-medium">
-                    <Sparkles className="w-3.5 h-3.5" />
-                    Production Ready Code
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#C49A2C] dark:bg-[#D4AF37]" />
+                  <span className="text-xs font-mono font-semibold uppercase tracking-wider text-[#171717] dark:text-[#F5F3EA]">
+                    Engineering Focus
                   </span>
-                  <span className="text-[#BDB76B]">MERN + AI Stack</span>
                 </div>
+                <span className="text-[11px] font-mono text-[#66645F] dark:text-[#B7B4AA]">
+                  Full-Stack &middot; AI
+                </span>
               </div>
+
+              {/* 4 Core Pillars of Abhishek's Engineering */}
+              <div className="space-y-3.5">
+                
+                {/* 1. Full-Stack Web Applications */}
+                <div className="p-3.5 rounded-xl bg-[#FAFAF8] dark:bg-[#23231F] border border-[#E7E3D8] dark:border-[#34332E] flex items-start gap-3.5">
+                  <div className="p-2 rounded-lg bg-[#F4E8C1] dark:bg-[#29281F] text-[#C49A2C] dark:text-[#D4AF37] shrink-0 mt-0.5">
+                    <Layers className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h3 className="text-xs font-bold text-[#171717] dark:text-[#F5F3EA]">
+                      Modern Frontend Architecture
+                    </h3>
+                    <p className="text-[11px] text-[#66645F] dark:text-[#B7B4AA] mt-0.5 leading-normal">
+                      React.js, Redux Toolkit, Tailwind CSS, code-splitting with React.lazy().
+                    </p>
+                  </div>
+                </div>
+
+                {/* 2. Scalable Backend & APIs */}
+                <div className="p-3.5 rounded-xl bg-[#FAFAF8] dark:bg-[#23231F] border border-[#E7E3D8] dark:border-[#34332E] flex items-start gap-3.5">
+                  <div className="p-2 rounded-lg bg-[#F4E8C1] dark:bg-[#29281F] text-[#CE8946] shrink-0 mt-0.5">
+                    <Server className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h3 className="text-xs font-bold text-[#171717] dark:text-[#F5F3EA]">
+                      Backend Systems & REST APIs
+                    </h3>
+                    <p className="text-[11px] text-[#66645F] dark:text-[#B7B4AA] mt-0.5 leading-normal">
+                      Node.js, Express.js, MongoDB schemas, JWT authentication, and OTP verification.
+                    </p>
+                  </div>
+                </div>
+
+                {/* 3. Real-World AI Integration */}
+                <div className="p-3.5 rounded-xl bg-[#FAFAF8] dark:bg-[#23231F] border border-[#E7E3D8] dark:border-[#34332E] flex items-start gap-3.5">
+                  <div className="p-2 rounded-lg bg-[#F4E8C1] dark:bg-[#29281F] text-[#C49A2C] dark:text-[#D4AF37] shrink-0 mt-0.5">
+                    <Sparkles className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h3 className="text-xs font-bold text-[#171717] dark:text-[#F5F3EA]">
+                      Generative AI & Multimodal APIs
+                    </h3>
+                    <p className="text-[11px] text-[#66645F] dark:text-[#B7B4AA] mt-0.5 leading-normal">
+                      Production integration with OpenAI GPT and Google Gemini Vision models.
+                    </p>
+                  </div>
+                </div>
+
+                {/* 4. Algorithmic Rigor & Cloud */}
+                <div className="p-3.5 rounded-xl bg-[#FAFAF8] dark:bg-[#23231F] border border-[#E7E3D8] dark:border-[#34332E] flex items-start gap-3.5">
+                  <div className="p-2 rounded-lg bg-[#F4E8C1] dark:bg-[#29281F] text-[#CE8946] shrink-0 mt-0.5">
+                    <CheckCircle2 className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h3 className="text-xs font-bold text-[#171717] dark:text-[#F5F3EA]">
+                      Cloud & Problem Solving
+                    </h3>
+                    <p className="text-[11px] text-[#66645F] dark:text-[#B7B4AA] mt-0.5 leading-normal">
+                      AWS Certified Cloud Practitioner, Cisco Networking, and 250+ LeetCode problems.
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+
+              {/* Footer status bar */}
+              <div className="mt-5 pt-3.5 border-t border-[#E7E3D8] dark:border-[#34332E] flex items-center justify-between text-[11px] font-mono text-[#66645F] dark:text-[#B7B4AA]">
+                <span className="flex items-center gap-1.5">
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#C49A2C] dark:text-[#D4AF37]" />
+                  Verified Credentials
+                </span>
+                <span className="text-[#C49A2C] dark:text-[#D4AF37] font-semibold">
+                  KIET Group &bull; 2023–2027
+                </span>
+              </div>
+
             </div>
           </div>
 

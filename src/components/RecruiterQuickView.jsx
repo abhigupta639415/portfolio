@@ -1,132 +1,73 @@
-import React, { useState } from 'react';
-import {
-  Briefcase,
-  Check,
-  Copy,
-  FileText,
-  Phone,
-  Code2,
-  Cloud,
-  Layers,
-  ArrowRight
-} from 'lucide-react';
-import { personalInfo } from '../data/portfolioData';
+import React from 'react';
+import { Code2, Briefcase, Cloud, GraduationCap } from 'lucide-react';
 
-export default function RecruiterQuickView({ onOpenResume }) {
-  const [copiedEmail, setCopiedEmail] = useState(false);
-  const [copiedPhone, setCopiedPhone] = useState(false);
-
-  const copyEmail = () => {
-    navigator.clipboard.writeText(personalInfo.email);
-    setCopiedEmail(true);
-    setTimeout(() => setCopiedEmail(false), 2000);
-  };
-
-  const copyPhone = () => {
-    navigator.clipboard.writeText(personalInfo.phone);
-    setCopiedPhone(true);
-    setTimeout(() => setCopiedPhone(false), 2000);
-  };
-
-  const scrollToProjects = () => {
-    const el = document.getElementById('projects');
-    if (el) {
-      const yOffset = -80;
-      const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: 'smooth' });
+export default function RecruiterQuickView() {
+  const credentials = [
+    {
+      value: '250+',
+      label: 'DSA Problems Solved',
+      detail: 'LeetCode Algorithms',
+      icon: Code2,
+      color: 'text-[#C49A2C] dark:text-[#D4AF37]',
+      bg: 'bg-[#F4E8C1]/60 dark:bg-[#29281F]'
+    },
+    {
+      value: '2+',
+      label: 'Internships',
+      detail: 'Codveda & MLSA KIET',
+      icon: Briefcase,
+      color: 'text-[#CE8946]',
+      bg: 'bg-[#F4E8C1]/60 dark:bg-[#29281F]'
+    },
+    {
+      value: 'AWS',
+      label: 'Certified',
+      detail: 'Cloud Practitioner',
+      icon: Cloud,
+      color: 'text-[#C49A2C] dark:text-[#D4AF37]',
+      bg: 'bg-[#F4E8C1]/60 dark:bg-[#29281F]'
+    },
+    {
+      value: 'B.Tech',
+      label: 'CSE · 2023–2027',
+      detail: 'KIET Group of Institutions',
+      icon: GraduationCap,
+      color: 'text-[#CE8946]',
+      bg: 'bg-[#F4E8C1]/60 dark:bg-[#29281F]'
     }
-  };
+  ];
 
   return (
-    <section className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 mb-16">
-      <div className="rounded-2xl bg-[#FFFFFF] border border-[#BDB76B]/40 shadow-card-soft p-5 sm:p-6">
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-          
-          {/* Left summary info */}
-          <div className="space-y-2">
-            <div className="flex items-center gap-2">
-              <span className="px-2.5 py-0.5 rounded text-[11px] font-mono font-bold uppercase tracking-wider bg-[#D4AF37]/20 text-[#171717] border border-[#D4AF37]/40">
-                Recruiter Fast-Track
-              </span>
-              <span className="text-xs text-[#5F5B50] font-mono">
-                Key Credentials at a Glance
-              </span>
-            </div>
-
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs sm:text-sm text-[#24221D]">
-              <div className="flex items-center gap-1.5 font-medium">
-                <span className="text-[#5F5B50] font-normal">Candidate:</span>
-                <span className="text-[#171717] font-bold">Abhishek Gupta</span>
+    <section className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 sm:-mt-8 mb-16 sm:mb-20">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+        {credentials.map((item, index) => {
+          const Icon = item.icon;
+          return (
+            <div
+              key={index}
+              className="p-4 sm:p-5 rounded-2xl transition-all duration-200
+                bg-[#FFFFFF] dark:bg-[#1D1D1A]
+                border border-[#E7E3D8] dark:border-[#34332E]
+                hover:border-[#C49A2C] dark:hover:border-[#D4AF37]
+                shadow-2xs hover:shadow-xs flex items-center gap-3.5"
+            >
+              <div className={`p-2.5 rounded-xl ${item.bg} ${item.color} shrink-0`}>
+                <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
-              <div className="flex items-center gap-1.5">
-                <span className="text-[#5F5B50] font-normal">Target:</span>
-                <span className="text-[#CE8946] font-semibold">Software Engineering / Full-Stack</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <span className="text-[#5F5B50] font-normal">Location:</span>
-                <span className="text-[#24221D]">Ghaziabad, India</span>
+              <div className="min-w-0">
+                <div className="text-base sm:text-lg font-bold font-mono tracking-tight text-[#171717] dark:text-[#F5F3EA] truncate">
+                  {item.value}
+                </div>
+                <div className="text-xs font-semibold text-[#171717]/85 dark:text-[#F5F3EA]/85 truncate">
+                  {item.label}
+                </div>
+                <div className="text-[11px] text-[#66645F] dark:text-[#B7B4AA] font-mono truncate">
+                  {item.detail}
+                </div>
               </div>
             </div>
-
-            {/* Quick Proof Pills */}
-            <div className="flex flex-wrap items-center gap-2 pt-1 text-xs font-mono">
-              <span className="px-2.5 py-1 rounded-md bg-[#FDFBD4] text-[#24221D] border border-[#BDB76B]/40 flex items-center gap-1.5 font-medium">
-                <Layers className="w-3.5 h-3.5 text-[#CE8946]" />
-                2 Deployed Apps
-              </span>
-              <span className="px-2.5 py-1 rounded-md bg-[#FDFBD4] text-[#24221D] border border-[#BDB76B]/40 flex items-center gap-1.5 font-medium">
-                <Code2 className="w-3.5 h-3.5 text-[#D4AF37]" />
-                250+ LeetCode DSA
-              </span>
-              <span className="px-2.5 py-1 rounded-md bg-[#FDFBD4] text-[#24221D] border border-[#BDB76B]/40 flex items-center gap-1.5 font-medium">
-                <Cloud className="w-3.5 h-3.5 text-[#CE8946]" />
-                AWS Cloud Practitioner
-              </span>
-              <span className="px-2.5 py-1 rounded-md bg-[#FDFBD4] text-[#24221D] border border-[#BDB76B]/40 flex items-center gap-1.5 font-medium">
-                <Briefcase className="w-3.5 h-3.5 text-[#D4AF37]" />
-                2 Internships (Codveda & MLSA)
-              </span>
-            </div>
-          </div>
-
-          {/* Right Action buttons */}
-          <div className="flex flex-wrap items-center gap-2.5 shrink-0 pt-2 lg:pt-0 border-t lg:border-t-0 border-[#BDB76B]/30">
-            <button
-              onClick={copyEmail}
-              className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-2 rounded-xl bg-[#FDFBD4] hover:bg-[#BDB76B]/30 text-[#171717] border border-[#BDB76B] transition-colors"
-              title="Copy email to clipboard"
-            >
-              {copiedEmail ? <Check className="w-3.5 h-3.5 text-[#CE8946]" /> : <Copy className="w-3.5 h-3.5 text-[#5F5B50]" />}
-              <span>{copiedEmail ? 'Email Copied!' : 'Copy Email'}</span>
-            </button>
-
-            <button
-              onClick={copyPhone}
-              className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-2 rounded-xl bg-[#FDFBD4] hover:bg-[#BDB76B]/30 text-[#171717] border border-[#BDB76B] transition-colors"
-              title="Copy phone number"
-            >
-              {copiedPhone ? <Check className="w-3.5 h-3.5 text-[#CE8946]" /> : <Phone className="w-3.5 h-3.5 text-[#5F5B50]" />}
-              <span>{copiedPhone ? 'Phone Copied!' : 'Copy Phone'}</span>
-            </button>
-
-            <button
-              onClick={onOpenResume}
-              className="inline-flex items-center gap-1.5 text-xs font-bold px-4 py-2 rounded-xl bg-[#D4AF37] hover:bg-[#CE8946] text-[#171717] hover:text-white shadow-sm transition-all"
-            >
-              <FileText className="w-3.5 h-3.5" />
-              <span>Resume PDF</span>
-            </button>
-
-            <button
-              onClick={scrollToProjects}
-              className="inline-flex items-center gap-1 text-xs font-semibold px-3 py-2 rounded-xl bg-transparent hover:bg-[#FDFBD4] text-[#24221D] border border-transparent hover:border-[#BDB76B] transition-colors"
-            >
-              <span>Projects</span>
-              <ArrowRight className="w-3.5 h-3.5 text-[#5F5B50]" />
-            </button>
-          </div>
-
-        </div>
+          );
+        })}
       </div>
     </section>
   );
