@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="dark scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,8 +7,7 @@
     <meta name="description" content="Abhishek Gupta is a Computer Science engineering student and Full-Stack Developer building modern web applications and AI-powered products using React, Node.js, MongoDB, and modern AI APIs." />
     <meta name="keywords" content="Abhishek Gupta, Full-Stack Developer, AI Integration, React.js, Node.js, Express, MongoDB, MERN Stack, KIET Group of Institutions, LeetCode, AWS Certified Cloud Practitioner" />
     <meta name="author" content="Abhishek Gupta" />
-    <meta name="theme-color" content="#FAFAF8" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#0F0F0E" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#0F0F0E" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -35,16 +34,14 @@
       (function() {
         try {
           const stored = localStorage.getItem('portfolio-theme');
-          if (stored === 'dark') {
-            document.documentElement.classList.add('dark');
-          } else if (stored === 'light') {
+          if (stored === 'light') {
             document.documentElement.classList.remove('dark');
           } else {
-            // Default to light mode as requested
-            document.documentElement.classList.remove('dark');
+            // Default to dark mode when no preference exists or when set to 'dark'
+            document.documentElement.classList.add('dark');
           }
         } catch (e) {
-          document.documentElement.classList.remove('dark');
+          document.documentElement.classList.add('dark');
         }
       })();
     </script>

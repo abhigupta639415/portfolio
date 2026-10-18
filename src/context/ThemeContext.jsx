@@ -7,10 +7,10 @@ export function ThemeProvider({ children }) {
     try {
       const saved = localStorage.getItem('portfolio-theme');
       if (saved === 'dark' || saved === 'light') return saved;
-      // Default to light mode as requested in specifications
-      return 'light';
+      // Default to dark mode as primary default
+      return 'dark';
     } catch (e) {
-      return 'light';
+      return 'dark';
     }
   });
 
@@ -21,17 +21,22 @@ export function ThemeProvider({ children }) {
     } else {
       root.classList.remove('dark');
     }
-    try {
-      localStorage.setItem('portfolio-theme', theme);
-    } catch (e) {}
   }, [theme]);
 
+  const updateTheme = (newTheme) => {
+    setTheme(newTheme);
+    try {
+      localStorage.setItem('portfolio-theme', newTheme);
+    } catch (e) {}
+  };
+
   const toggleTheme = () => {
-    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
+    const nextTheme = theme === 'dark' ? 'light' : 'dark';
+    updateTheme(nextTheme);
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme, toggleTheme, isDark: theme === 'dark' }}>
+    <ThemeContext.Provider value={{ theme, setTheme: updateTheme, toggleTheme, isDark: theme === 'dark' }}>
       {children}
     </ThemeContext.Provider>
   );
