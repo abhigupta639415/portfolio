@@ -4,11 +4,9 @@ import {
   Layout,
   Server,
   Database,
-  ShieldCheck,
-  Brain,
   Wrench,
-  Sparkles,
-  Check
+  Cpu,
+  Sparkles
 } from 'lucide-react';
 import { skillsData } from '../data/portfolioData';
 
@@ -17,13 +15,12 @@ export default function Skills() {
 
   const categories = [
     { key: 'all', label: 'All Categories' },
-    { key: 'languages', label: 'Languages', icon: <Code className="w-4 h-4 text-sky-400" /> },
-    { key: 'frontend', label: 'Frontend', icon: <Layout className="w-4 h-4 text-blue-400" /> },
-    { key: 'backend', label: 'Backend', icon: <Server className="w-4 h-4 text-emerald-400" /> },
-    { key: 'database', label: 'Database', icon: <Database className="w-4 h-4 text-teal-400" /> },
-    { key: 'authSecurity', label: 'Auth & Security', icon: <ShieldCheck className="w-4 h-4 text-amber-400" /> },
-    { key: 'aiIntegration', label: 'AI Integration', icon: <Brain className="w-4 h-4 text-purple-400" /> },
-    { key: 'toolsPlatforms', label: 'Tools & Platforms', icon: <Wrench className="w-4 h-4 text-slate-400" /> },
+    { key: 'languages', label: 'Languages', icon: <Code className="w-4 h-4 text-[#D4AF37]" /> },
+    { key: 'frontend', label: 'Frontend', icon: <Layout className="w-4 h-4 text-[#CE8946]" /> },
+    { key: 'backend', label: 'Backend', icon: <Server className="w-4 h-4 text-[#BDB76B]" /> },
+    { key: 'database', label: 'Database', icon: <Database className="w-4 h-4 text-[#D4AF37]" /> },
+    { key: 'tools', label: 'Tools', icon: <Wrench className="w-4 h-4 text-[#CE8946]" /> },
+    { key: 'core', label: 'Core', icon: <Cpu className="w-4 h-4 text-[#BDB76B]" /> },
   ];
 
   const categoryEntries = Object.entries(skillsData);
@@ -35,40 +32,38 @@ export default function Skills() {
   const getCategoryIcon = (key) => {
     switch (key) {
       case 'languages':
-        return <Code className="w-5 h-5 text-sky-400" />;
+        return <Code className="w-5 h-5 text-[#D4AF37]" />;
       case 'frontend':
-        return <Layout className="w-5 h-5 text-blue-400" />;
+        return <Layout className="w-5 h-5 text-[#CE8946]" />;
       case 'backend':
-        return <Server className="w-5 h-5 text-emerald-400" />;
+        return <Server className="w-5 h-5 text-[#BDB76B]" />;
       case 'database':
-        return <Database className="w-5 h-5 text-teal-400" />;
-      case 'authSecurity':
-        return <ShieldCheck className="w-5 h-5 text-amber-400" />;
-      case 'aiIntegration':
-        return <Brain className="w-5 h-5 text-purple-400" />;
-      case 'toolsPlatforms':
-        return <Wrench className="w-5 h-5 text-indigo-400" />;
+        return <Database className="w-5 h-5 text-[#D4AF37]" />;
+      case 'tools':
+        return <Wrench className="w-5 h-5 text-[#CE8946]" />;
+      case 'core':
+        return <Cpu className="w-5 h-5 text-[#D4AF37]" />;
       default:
-        return <Sparkles className="w-5 h-5 text-sky-400" />;
+        return <Sparkles className="w-5 h-5 text-[#D4AF37]" />;
     }
   };
 
   return (
-    <section id="skills" className="py-24 relative">
+    <section id="skills" className="py-24 relative bg-[#FDFBD4]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="flex flex-col items-start mb-10">
           <div className="flex items-center gap-2 mb-2">
-            <span className="w-8 h-[2px] bg-sky-400" />
-            <span className="text-xs font-mono font-semibold uppercase tracking-wider text-sky-400">
+            <span className="w-8 h-[2px] bg-[#D4AF37]" />
+            <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#CE8946]">
               06 &middot; Technical Stack
             </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#171717]">
             Technical Skills
           </h2>
-          <p className="text-sm sm:text-base text-slate-400 mt-2 max-w-xl">
+          <p className="text-sm sm:text-base text-[#5F5B50] mt-2 max-w-xl">
             Strictly focused on demonstrated expertise in modern full-stack development, algorithms, cloud services, and AI APIs.
           </p>
         </div>
@@ -79,10 +74,10 @@ export default function Skills() {
             <button
               key={cat.key}
               onClick={() => setActiveCategory(cat.key)}
-              className={`px-3.5 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-all duration-200 flex items-center gap-1.5 ${
+              className={`px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all duration-200 flex items-center gap-1.5 ${
                 activeCategory === cat.key
-                  ? 'bg-sky-500 text-white font-semibold shadow-md shadow-sky-500/20'
-                  : 'bg-slate-900/80 text-slate-400 hover:text-slate-200 hover:bg-slate-800 border border-white/5'
+                  ? 'bg-[#D4AF37] text-[#171717] shadow-sm'
+                  : 'bg-[#FFFFFF] text-[#5F5B50] hover:text-[#171717] hover:bg-[#FDFBD4] border border-[#BDB76B]/40'
               }`}
             >
               {cat.icon}
@@ -96,39 +91,39 @@ export default function Skills() {
           {filteredEntries.map(([key, group]) => (
             <div
               key={key}
-              className="p-6 rounded-2xl bg-[#0c121e] border border-white/[0.08] hover:border-sky-500/30 transition-all duration-300 shadow-xl flex flex-col justify-between"
+              className="p-6 rounded-2xl bg-[#FFFFFF] border border-[#BDB76B]/35 hover:border-[#D4AF37] transition-all duration-300 shadow-card-soft hover:shadow-card-hover flex flex-col justify-between"
             >
               <div>
                 {/* Header */}
-                <div className="flex items-center justify-between mb-4 pb-3 border-b border-white/[0.06]">
+                <div className="flex items-center justify-between mb-4 pb-3 border-b border-[#BDB76B]/25">
                   <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-xl bg-slate-800/90 border border-white/5 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-xl bg-[#FDFBD4] border border-[#BDB76B]/35 flex items-center justify-center">
                       {getCategoryIcon(key)}
                     </div>
-                    <h3 className="font-bold text-white text-base tracking-tight">
+                    <h3 className="font-extrabold text-[#171717] text-base tracking-tight">
                       {group.category}
                     </h3>
                   </div>
-                  <span className="text-[11px] font-mono text-slate-500">
+                  <span className="text-[11px] font-mono text-[#5F5B50] font-semibold">
                     {group.skills.length} skills
                   </span>
                 </div>
 
-                {/* Skills list */}
+                {/* Minimal Skill Pills (Background: #FDFBD4, Border: #BDB76B, Text: #24221D, Hover: #D4AF37) */}
                 <div className="flex flex-wrap gap-2">
                   {group.skills.map((skill, idx) => (
                     <span
                       key={idx}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900/90 border border-white/[0.07] text-xs font-mono text-slate-200 hover:text-sky-300 hover:border-sky-500/40 hover:bg-slate-800 transition-colors"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#FDFBD4] border border-[#BDB76B] text-xs font-mono font-semibold text-[#24221D] hover:border-[#D4AF37] hover:bg-[#D4AF37]/20 transition-colors"
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-sky-400/80" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#CE8946]" />
                       {skill}
                     </span>
                   ))}
                 </div>
               </div>
 
-              <div className="mt-5 pt-3 border-t border-white/[0.04] text-[11px] font-mono text-slate-500">
+              <div className="mt-5 pt-3 border-t border-[#BDB76B]/20 text-[11px] font-mono text-[#5F5B50]">
                 Verified in live projects & practice
               </div>
             </div>

@@ -137,25 +137,25 @@ export const specializationsData = [
     title: "Full-Stack Web Applications",
     description: "Responsive and scalable applications using React, Node.js, Express, and MongoDB.",
     icon: "Layers",
-    color: "sky"
+    color: "gold"
   },
   {
     title: "AI-Powered Applications",
     description: "Real-world products integrating OpenAI and Google Gemini APIs.",
     icon: "Brain",
-    color: "indigo"
+    color: "bronze"
   },
   {
     title: "REST APIs & Backend Systems",
     description: "Secure backend systems with authentication, validation, database schemas, and RESTful APIs.",
     icon: "Server",
-    color: "emerald"
+    color: "taupe"
   },
   {
     title: "Modern Frontend Experiences",
     description: "Responsive interfaces with React, Tailwind CSS, Redux Toolkit, animations, and data visualization.",
     icon: "Layout",
-    color: "violet"
+    color: "gold"
   }
 ];
 
@@ -251,68 +251,27 @@ export const projectsData = [
 export const skillsData = {
   languages: {
     category: "Languages",
-    skills: ["C", "C++", "JavaScript (ES6+)"]
+    skills: ["C++", "Java", "JavaScript", "PHP"]
   },
   frontend: {
     category: "Frontend",
-    skills: [
-      "React.js",
-      "Redux Toolkit",
-      "HTML5",
-      "CSS3",
-      "Tailwind CSS",
-      "Responsive Web Design"
-    ]
+    skills: ["HTML", "CSS", "React.js", "Tailwind CSS"]
   },
   backend: {
     category: "Backend",
-    skills: [
-      "Node.js",
-      "Express.js",
-      "REST API Design",
-      "RESTful APIs"
-    ]
+    skills: ["Node.js", "Express.js"]
   },
   database: {
     category: "Database",
-    skills: [
-      "MongoDB",
-      "Mongoose",
-      "Schema Design",
-      "Aggregation"
-    ]
+    skills: ["MongoDB", "PostgreSQL"]
   },
-  authSecurity: {
-    category: "Authentication & Security",
-    skills: [
-      "JWT",
-      "Firebase Authentication",
-      "bcrypt",
-      "OTP-based Verification",
-      "express-validator"
-    ]
+  tools: {
+    category: "Tools",
+    skills: ["Git", "GitHub", "Firebase", "Vercel"]
   },
-  aiIntegration: {
-    category: "AI / API Integration",
-    skills: [
-      "OpenAI GPT API",
-      "Google Gemini API",
-      "Google Gemini Vision API"
-    ]
-  },
-  toolsPlatforms: {
-    category: "Tools & Platforms",
-    skills: [
-      "Git",
-      "GitHub",
-      "AWS EC2",
-      "AWS S3",
-      "AWS IAM",
-      "Vercel",
-      "Render",
-      "Postman",
-      "VS Code"
-    ]
+  core: {
+    category: "Core",
+    skills: ["DSA", "OOP", "DBMS", "Operating Systems", "Computer Networks"]
   }
 };
 
@@ -385,25 +344,6 @@ export const credentialsData = {
       description: "Practical engineering experience building real-world web applications and frontend architectures.",
       items: [
         {
-          id: "mlsa-internship",
-          title: "100-Hour Full Stack Web Development Internship",
-          organization: "MLSA KIET",
-          program: "100-Hour Internship",
-          domain: "Full Stack Web Development",
-          badge: "100-Hour Program",
-          type: "Internship / Experience",
-          iconType: "Briefcase",
-          issueDate: "Apr 2025 – Jun 2025",
-          duration: "Apr 2025 – Jun 2025",
-          description: "Successfully completed a 100-hour internship offered by MLSA KIET in the Full Stack Web Development domain, gaining hands-on experience in developing end-to-end web applications.",
-          additionalAchievement: "Successfully submitted a Pull Request to the official MLSA KIET GitHub repository as part of the program.",
-          certificateImage: "/certificates/mlsa-full-stack-internship.png",
-          hasCertificate: true,
-          actionButtons: [
-            { label: "View Certificate", action: "preview", primary: true }
-          ]
-        },
-        {
           id: "codveda-internship",
           title: "Web Development Intern",
           organization: "Codveda Technologies",
@@ -421,6 +361,25 @@ export const credentialsData = {
             "Completion of assignments and challenges"
           ],
           certificateImage: "/certificates/codveda-web-development-internship.png",
+          hasCertificate: true,
+          actionButtons: [
+            { label: "View Certificate", action: "preview", primary: true }
+          ]
+        },
+        {
+          id: "mlsa-internship",
+          title: "100-Hour Full Stack Web Development Internship",
+          organization: "MLSA KIET",
+          program: "100-Hour Internship",
+          domain: "Full Stack Web Development",
+          badge: "100-Hour Program",
+          type: "Internship / Experience",
+          iconType: "Briefcase",
+          issueDate: "Apr 2025 – Jun 2025",
+          duration: "Apr 2025 – Jun 2025",
+          description: "Successfully completed a 100-hour internship offered by MLSA KIET in the Full Stack Web Development domain, gaining hands-on experience in developing end-to-end web applications.",
+          additionalAchievement: "Successfully submitted a Pull Request to the official MLSA KIET GitHub repository as part of the program.",
+          certificateImage: "/certificates/mlsa-full-stack-internship.png",
           hasCertificate: true,
           actionButtons: [
             { label: "View Certificate", action: "preview", primary: true }
@@ -443,6 +402,32 @@ export const credentialsData = {
           issueDate: "2025",
           description: "Selected at institute level among 100+ teams for developing an innovative technology-driven solution in a team-based national hackathon.",
           hasCertificate: false,
+        },
+        {
+          id: "bplan-endeavour-2025",
+          title: "B-PLAN — ENDEAVOUR'25",
+          organization: "E-CELL KIET, KIET Group of Institutions",
+          event: "ENDEAVOUR'25 — Annual Summit",
+          issueDate: "2nd – 3rd May 2025",
+          certificateType: "Certificate of Participation",
+          recipient: "Abhishek Gupta",
+          badge: "Participation",
+          type: "Entrepreneurship & Innovation",
+          iconType: "Lightbulb",
+          description: "Participated in the B-PLAN event at ENDEAVOUR'25, organized by the E-CELL at KIET Group of Institutions from 2nd to 3rd May 2025, gaining experience in collaboration, learning, and pitching innovative ideas among aspiring entrepreneurs and mentors.",
+          skillsCovered: [
+            "Entrepreneurship",
+            "Innovation",
+            "Startup",
+            "Business Planning",
+            "Teamwork",
+            "Idea Pitching"
+          ],
+          certificateImage: "/certificates/b-plan-endeavour-2025.png",
+          hasCertificate: true,
+          actionButtons: [
+            { label: "View Certificate", action: "preview", primary: true }
+          ]
         },
         {
           id: "innotech-2025",
@@ -482,7 +467,7 @@ export const credentialsData = {
   ]
 };
 
-// Backward compatibility alias for any existing imports
+// Backward compatibility alias
 export const achievementsData = credentialsData.categories.find(c => c.id === 'achievements').items;
 
 export const problemSolvingData = {
@@ -508,8 +493,8 @@ export const resumeData = {
 };
 
 export const contactData = {
-  heading: "Let's Build Something Together",
-  text: "I'm open to software engineering opportunities, internships, and projects where I can contribute my full-stack development and AI integration skills.",
+  heading: "Let's build something meaningful.",
+  text: "Open to software development opportunities, internships, and full-time roles.",
   details: {
     email: "abhishekgupta639415@gmail.com",
     phone: "+91 6394158352",

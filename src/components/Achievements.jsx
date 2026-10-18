@@ -9,11 +9,9 @@ import {
   ExternalLink,
   Eye,
   CheckCircle2,
-  Calendar,
   Building2,
-  ShieldCheck,
   QrCode,
-  FileText
+  Lightbulb
 } from 'lucide-react';
 import { credentialsData } from '../data/portfolioData';
 
@@ -23,43 +21,30 @@ export default function Achievements({ onOpenCertificate }) {
   const getIcon = (iconType) => {
     switch (iconType) {
       case 'Cloud':
-        return <Cloud className="w-5 h-5 text-amber-400" />;
+        return <Cloud className="w-5 h-5 text-[#CE8946]" />;
       case 'Network':
-        return <Network className="w-5 h-5 text-sky-400" />;
+        return <Network className="w-5 h-5 text-[#D4AF37]" />;
       case 'Briefcase':
-        return <Briefcase className="w-5 h-5 text-indigo-400" />;
+        return <Briefcase className="w-5 h-5 text-[#CE8946]" />;
       case 'Trophy':
-        return <Trophy className="w-5 h-5 text-amber-400" />;
+        return <Trophy className="w-5 h-5 text-[#D4AF37]" />;
       case 'Award':
-        return <Award className="w-5 h-5 text-purple-400" />;
+        return <Award className="w-5 h-5 text-[#CE8946]" />;
+      case 'Lightbulb':
+        return <Lightbulb className="w-5 h-5 text-[#D4AF37]" />;
       case 'Terminal':
-        return <Terminal className="w-5 h-5 text-emerald-400" />;
+        return <Terminal className="w-5 h-5 text-[#BDB76B]" />;
       default:
-        return <CheckCircle2 className="w-5 h-5 text-sky-400" />;
+        return <CheckCircle2 className="w-5 h-5 text-[#D4AF37]" />;
     }
   };
 
-  const getCategoryBadgeStyle = (categoryId) => {
-    switch (categoryId) {
-      case 'certifications':
-        return 'bg-amber-500/10 text-amber-300 border-amber-500/20';
-      case 'internships':
-        return 'bg-sky-500/10 text-sky-300 border-sky-500/20';
-      case 'achievements':
-        return 'bg-purple-500/10 text-purple-300 border-purple-500/20';
-      default:
-        return 'bg-slate-800 text-slate-300 border-white/10';
-    }
-  };
-
-  // Filter categories based on active tab
   const displayedCategories = activeTab === 'all'
     ? credentialsData.categories
     : credentialsData.categories.filter((cat) => cat.id === activeTab);
 
   return (
-    <section id="achievements" className="py-24 relative scroll-mt-20">
-      {/* Target anchor for credentials as well */}
+    <section id="achievements" className="py-24 relative bg-[#FDFBD4] scroll-mt-20">
       <div id="credentials" className="scroll-mt-20" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -67,15 +52,15 @@ export default function Achievements({ onOpenCertificate }) {
         {/* Section Header */}
         <div className="flex flex-col items-start mb-10">
           <div className="flex items-center gap-2 mb-2">
-            <span className="w-8 h-[2px] bg-sky-400" />
-            <span className="text-xs font-mono font-semibold uppercase tracking-wider text-sky-400">
+            <span className="w-8 h-[2px] bg-[#D4AF37]" />
+            <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#CE8946]">
               08 &middot; Credentials & Recognition
             </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#171717]">
             {credentialsData.heading}
           </h2>
-          <p className="text-sm sm:text-base text-slate-400 mt-2 max-w-2xl leading-relaxed">
+          <p className="text-sm sm:text-base text-[#5F5B50] mt-2 max-w-2xl leading-relaxed">
             {credentialsData.subtitle}
           </p>
         </div>
@@ -85,13 +70,13 @@ export default function Achievements({ onOpenCertificate }) {
           <button
             type="button"
             onClick={() => setActiveTab('all')}
-            className={`px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${
+            className={`px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${
               activeTab === 'all'
-                ? 'bg-sky-500 text-white shadow-md shadow-sky-500/20'
-                : 'bg-slate-900/80 text-slate-400 hover:text-slate-200 hover:bg-slate-800 border border-white/5'
+                ? 'bg-[#D4AF37] text-[#171717] shadow-sm'
+                : 'bg-[#FFFFFF] text-[#5F5B50] hover:text-[#171717] hover:bg-[#FDFBD4] border border-[#BDB76B]/40'
             }`}
           >
-            All Credentials (7)
+            All Credentials (8)
           </button>
           
           {credentialsData.categories.map((category) => (
@@ -99,14 +84,14 @@ export default function Achievements({ onOpenCertificate }) {
               key={category.id}
               type="button"
               onClick={() => setActiveTab(category.id)}
-              className={`px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all flex items-center gap-1.5 ${
+              className={`px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all flex items-center gap-1.5 ${
                 activeTab === category.id
-                  ? 'bg-sky-500 text-white shadow-md shadow-sky-500/20'
-                  : 'bg-slate-900/80 text-slate-400 hover:text-slate-200 hover:bg-slate-800 border border-white/5'
+                  ? 'bg-[#D4AF37] text-[#171717] shadow-sm'
+                  : 'bg-[#FFFFFF] text-[#5F5B50] hover:text-[#171717] hover:bg-[#FDFBD4] border border-[#BDB76B]/40'
               }`}
             >
               <span>{category.name}</span>
-              <span className="text-[10px] font-mono px-1.5 py-0.2 rounded-full bg-black/30">
+              <span className="text-[10px] font-mono px-1.5 py-0.2 rounded-full bg-[#FDFBD4] text-[#171717] border border-[#BDB76B]">
                 {category.items.length}
               </span>
             </button>
@@ -119,16 +104,16 @@ export default function Achievements({ onOpenCertificate }) {
             <div key={category.id} className="space-y-5">
               
               {/* Category Sub-heading */}
-              <div className="flex items-center justify-between border-b border-white/[0.08] pb-3">
+              <div className="flex items-center justify-between border-b border-[#BDB76B]/30 pb-3">
                 <div className="flex items-center gap-3">
-                  <span className={`px-2.5 py-1 rounded-lg text-xs font-mono font-bold uppercase tracking-wider border ${getCategoryBadgeStyle(category.id)}`}>
+                  <span className="px-3 py-1 rounded-lg text-xs font-mono font-bold uppercase tracking-wider bg-[#FDFBD4] text-[#171717] border border-[#BDB76B]">
                     {category.name}
                   </span>
-                  <span className="text-xs text-slate-400 hidden sm:inline">
+                  <span className="text-xs text-[#5F5B50] hidden sm:inline">
                     {category.description}
                   </span>
                 </div>
-                <span className="text-xs font-mono text-slate-500">
+                <span className="text-xs font-mono text-[#5F5B50] font-semibold">
                   {category.items.length} {category.items.length === 1 ? 'Record' : 'Records'}
                 </span>
               </div>
@@ -138,66 +123,69 @@ export default function Achievements({ onOpenCertificate }) {
                 {category.items.map((item) => (
                   <div
                     key={item.id}
-                    className="p-6 rounded-2xl bg-[#0c121e] border border-white/[0.08] hover:border-sky-500/30 transition-all duration-300 shadow-xl flex flex-col justify-between group"
+                    className="p-6 rounded-2xl bg-[#FFFFFF] border border-[#BDB76B]/35 hover:border-[#D4AF37] transition-all duration-300 shadow-card-soft hover:shadow-card-hover flex flex-col justify-between group relative overflow-hidden"
                   >
+                    {/* Gold accent line at top */}
+                    <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#D4AF37] via-[#CE8946] to-[#BDB76B]" />
+
                     <div>
                       {/* Top Bar: Icon + Badge */}
-                      <div className="flex items-center justify-between mb-4">
-                        <div className="w-10 h-10 rounded-xl bg-slate-800/90 border border-white/5 flex items-center justify-center group-hover:scale-105 transition-transform">
+                      <div className="flex items-center justify-between mb-4 mt-1">
+                        <div className="w-10 h-10 rounded-xl bg-[#FDFBD4] border border-[#BDB76B]/35 flex items-center justify-center group-hover:scale-105 transition-transform">
                           {getIcon(item.iconType)}
                         </div>
-                        <span className="px-2.5 py-0.5 rounded text-[11px] font-mono font-semibold bg-slate-900 text-slate-300 border border-white/10">
+                        <span className="px-2.5 py-0.5 rounded text-[11px] font-mono font-bold bg-[#FDFBD4] text-[#171717] border border-[#BDB76B]">
                           {item.badge}
                         </span>
                       </div>
 
                       {/* Organization & Date */}
-                      <div className="flex items-center justify-between text-xs text-slate-400 font-mono mb-1.5">
-                        <span className="flex items-center gap-1.5 text-slate-300 font-semibold truncate max-w-[65%]">
-                          <Building2 className="w-3.5 h-3.5 text-sky-400 shrink-0" />
+                      <div className="flex items-center justify-between text-xs text-[#5F5B50] font-mono mb-1.5">
+                        <span className="flex items-center gap-1.5 text-[#CE8946] font-bold truncate max-w-[65%]">
+                          <Building2 className="w-3.5 h-3.5 text-[#D4AF37] shrink-0" />
                           <span className="truncate">{item.organization}</span>
                         </span>
                         {item.issueDate && (
-                          <span className="text-slate-400 shrink-0">
+                          <span className="text-[#5F5B50] shrink-0 font-semibold">
                             {item.duration || item.issueDate}
                           </span>
                         )}
                       </div>
 
                       {/* Title */}
-                      <h3 className="text-lg font-bold text-white tracking-tight mb-2">
+                      <h3 className="text-lg font-extrabold text-[#171717] tracking-tight mb-2">
                         {item.title}
                       </h3>
 
                       {/* Expiration date if applicable */}
                       {item.expirationDate && (
-                        <div className="text-[11px] font-mono text-amber-300/90 mb-2">
+                        <div className="text-[11px] font-mono text-[#CE8946] font-semibold mb-2">
                           Valid Until: {item.expirationDate}
                         </div>
                       )}
 
                       {/* Description */}
-                      <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                      <p className="text-xs sm:text-sm text-[#5F5B50] leading-relaxed mb-4">
                         {item.description}
                       </p>
 
                       {/* Skills or recognitions preview */}
                       {item.skillsCovered && (
-                        <div className="mb-4 pt-2 border-t border-white/[0.04]">
-                          <div className="text-[11px] font-mono uppercase text-slate-400 mb-1.5">
-                            Practical Areas Covered:
+                        <div className="mb-4 pt-2 border-t border-[#BDB76B]/20">
+                          <div className="text-[11px] font-mono uppercase text-[#5F5B50] font-bold mb-1.5">
+                            Focus Areas / Skills:
                           </div>
                           <div className="flex flex-wrap gap-1">
                             {item.skillsCovered.slice(0, 4).map((skill, idx) => (
                               <span
                                 key={idx}
-                                className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-900 text-slate-300 border border-white/5"
+                                className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#FDFBD4] text-[#24221D] border border-[#BDB76B]"
                               >
                                 {skill}
                               </span>
                             ))}
                             {item.skillsCovered.length > 4 && (
-                              <span className="text-[10px] font-mono px-1.5 py-0.5 text-sky-400">
+                              <span className="text-[10px] font-mono px-1.5 py-0.5 text-[#CE8946] font-bold">
                                 +{item.skillsCovered.length - 4} more
                               </span>
                             )}
@@ -206,15 +194,15 @@ export default function Achievements({ onOpenCertificate }) {
                       )}
 
                       {item.recognizes && (
-                        <div className="mb-4 pt-2 border-t border-white/[0.04]">
-                          <div className="text-[11px] font-mono uppercase text-slate-400 mb-1.5">
+                        <div className="mb-4 pt-2 border-t border-[#BDB76B]/20">
+                          <div className="text-[11px] font-mono uppercase text-[#5F5B50] font-bold mb-1.5">
                             Certificate Recognizes:
                           </div>
                           <div className="flex flex-wrap gap-1">
                             {item.recognizes.slice(0, 3).map((rec, idx) => (
                               <span
                                 key={idx}
-                                className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-900 text-slate-300 border border-white/5"
+                                className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#FDFBD4] text-[#24221D] border border-[#BDB76B]"
                               >
                                 {rec}
                               </span>
@@ -224,35 +212,35 @@ export default function Achievements({ onOpenCertificate }) {
                       )}
 
                       {item.additionalAchievement && (
-                        <div className="mb-4 p-2.5 rounded-lg bg-sky-500/10 border border-sky-500/20 text-xs text-sky-200">
-                          <span className="font-semibold text-white">Program Contribution: </span>
+                        <div className="mb-4 p-2.5 rounded-lg bg-[#FDFBD4] border border-[#BDB76B] text-xs text-[#24221D]">
+                          <span className="font-bold text-[#CE8946]">Program Contribution: </span>
                           {item.additionalAchievement}
                         </div>
                       )}
 
                       {/* Validation / QR Notice */}
                       {item.validationNumber && (
-                        <div className="text-[11px] font-mono text-slate-400 mb-2 truncate">
-                          <span className="text-slate-500">Validation: </span>
-                          <span className="text-sky-300">{item.validationNumber}</span>
+                        <div className="text-[11px] font-mono text-[#5F5B50] mb-2 truncate">
+                          <span className="font-semibold text-[#171717]">Validation: </span>
+                          <span className="text-[#CE8946] font-mono">{item.validationNumber}</span>
                         </div>
                       )}
 
                       {item.qrNotice && (
-                        <div className="flex items-center gap-1.5 text-[11px] font-mono text-emerald-400 mb-2">
-                          <QrCode className="w-3.5 h-3.5" />
+                        <div className="flex items-center gap-1.5 text-[11px] font-mono text-[#CE8946] font-bold mb-2">
+                          <QrCode className="w-3.5 h-3.5 text-[#D4AF37]" />
                           <span>{item.qrNotice}</span>
                         </div>
                       )}
                     </div>
 
                     {/* Action Buttons */}
-                    <div className="pt-4 border-t border-white/[0.08] flex items-center gap-2.5 flex-wrap">
+                    <div className="pt-4 border-t border-[#BDB76B]/25 flex items-center gap-2.5 flex-wrap">
                       {item.hasCertificate && (
                         <button
                           type="button"
                           onClick={() => onOpenCertificate && onOpenCertificate(item)}
-                          className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-sky-500 hover:bg-sky-400 text-white font-semibold text-xs shadow-md shadow-sky-500/20 transition-all cursor-pointer"
+                          className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#D4AF37] hover:bg-[#CE8946] text-[#171717] hover:text-white font-bold text-xs shadow-sm transition-all cursor-pointer"
                         >
                           <Eye className="w-3.5 h-3.5" />
                           <span>View Certificate</span>
@@ -265,10 +253,10 @@ export default function Achievements({ onOpenCertificate }) {
                           href={item.verificationUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white text-xs font-medium border border-slate-700 transition-colors"
+                          className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#FFFFFF] hover:bg-[#FDFBD4] text-[#24221D] hover:text-[#171717] text-xs font-semibold border border-[#BDB76B] transition-colors"
                         >
                           <span>Verify Credential</span>
-                          <ExternalLink className="w-3 h-3 text-sky-400" />
+                          <ExternalLink className="w-3 h-3 text-[#CE8946]" />
                         </a>
                       )}
 
@@ -278,10 +266,10 @@ export default function Achievements({ onOpenCertificate }) {
                           href={item.externalUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 hover:text-white border border-amber-500/30 text-xs font-semibold transition-colors"
+                          className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#FDFBD4] hover:bg-[#D4AF37]/20 text-[#171717] border border-[#BDB76B] text-xs font-bold transition-colors"
                         >
                           <span>View LeetCode Profile</span>
-                          <ExternalLink className="w-3.5 h-3.5" />
+                          <ExternalLink className="w-3.5 h-3.5 text-[#CE8946]" />
                         </a>
                       )}
                     </div>

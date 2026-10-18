@@ -4,38 +4,48 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        dark: {
-          bg: '#080b11',
-          surface: '#0d131f',
-          card: '#121a2b',
-          border: 'rgba(255, 255, 255, 0.08)',
-          hover: '#182238'
+        gold: {
+          DEFAULT: '#D4AF37',
+          hover: '#CE8946',
+          light: '#F3E4A8',
+          accent: '#C59E27',
         },
-        brand: {
-          blue: '#3b82f6',
-          sky: '#38bdf8',
-          cyan: '#06b6d4',
-          indigo: '#6366f1',
-          violet: '#8b5cf6'
+        taupe: {
+          DEFAULT: '#BDB76B',
+          light: '#E6E2AF',
+          muted: '#8E8946',
+          border: 'rgba(189, 183, 107, 0.35)',
+        },
+        cream: {
+          DEFAULT: '#FDFBD4',
+          pure: '#FFFFFF',
+          card: '#FFFFFF',
+          soft: '#F8F5C4',
+          subtle: '#FAF8D0',
+        },
+        bronze: {
+          DEFAULT: '#CE8946',
+          hover: '#B87232',
+        },
+        neutralDark: {
+          DEFAULT: '#24221D',
+          primary: '#171717',
+          secondary: '#5F5B50',
+          card: '#1F1D18',
         }
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-        mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
-      },
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'subtle-glow': 'radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.12), transparent 70%)',
-        'grid-pattern': "linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px)",
+        sans: ['Manrope', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        mono: ['JetBrains Mono', 'monospace'],
       },
       boxShadow: {
-        'glow-sm': '0 0 20px -5px rgba(56, 189, 248, 0.25)',
-        'glow-md': '0 0 35px -5px rgba(99, 102, 241, 0.3)',
-        'card-elevated': '0 10px 30px -10px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.08)',
+        'taupe-sm': '0 2px 10px -2px rgba(189, 183, 107, 0.25)',
+        'gold-md': '0 8px 30px -4px rgba(212, 175, 55, 0.25)',
+        'card-soft': '0 4px 20px -2px rgba(95, 91, 80, 0.08), 0 0 0 1px rgba(189, 183, 107, 0.25)',
+        'card-hover': '0 12px 32px -4px rgba(206, 137, 70, 0.2), 0 0 0 1.5px rgba(212, 175, 55, 0.6)',
       }
     },
   },

@@ -72,14 +72,14 @@ export default function CertificateModal({ certificate, isOpen, onClose }) {
         onClick={(e) => e.stopPropagation()}
       >
         {/* Top Control Bar */}
-        <div className="bg-[#090d16] border-b border-white/[0.08] px-4 sm:px-6 py-3.5 flex flex-wrap items-center justify-between gap-3">
+        <div className="bg-[#24221D] border-b border-taupe/40 px-4 sm:px-6 py-3.5 flex flex-wrap items-center justify-between gap-3 text-cream">
           <div className="flex items-center gap-2.5 truncate max-w-[70%]">
-            <span className="w-2.5 h-2.5 rounded-full bg-sky-400 animate-pulse" />
+            <span className="w-2.5 h-2.5 rounded-full bg-gold animate-pulse" />
             <div className="truncate">
-              <h3 id="certificate-modal-title" className="text-sm sm:text-base font-bold text-white truncate">
+              <h3 id="certificate-modal-title" className="text-sm sm:text-base font-bold text-cream truncate">
                 {certificate.title}
               </h3>
-              <p className="text-xs text-slate-400 font-mono truncate">
+              <p className="text-xs text-[#BDB76B] font-mono truncate">
                 {certificate.organization}
               </p>
             </div>
@@ -89,23 +89,23 @@ export default function CertificateModal({ certificate, isOpen, onClose }) {
           <div className="flex items-center gap-1.5 sm:gap-2">
             {/* Zoom Controls */}
             {!imageError && (
-              <div className="hidden sm:flex items-center bg-slate-900/90 border border-white/10 rounded-lg p-0.5">
+              <div className="hidden sm:flex items-center bg-[#1F1D18] border border-taupe/40 rounded-lg p-0.5">
                 <button
                   type="button"
                   onClick={handleZoomOut}
-                  className="p-1.5 text-slate-400 hover:text-white rounded hover:bg-slate-800 transition-colors"
+                  className="p-1.5 text-cream/70 hover:text-cream rounded hover:bg-white/10 transition-colors"
                   title="Zoom Out"
                   aria-label="Zoom Out"
                 >
                   <ZoomOut className="w-3.5 h-3.5" />
                 </button>
-                <span className="text-[11px] font-mono text-slate-300 px-2 select-none">
+                <span className="text-[11px] font-mono text-cream px-2 select-none">
                   {Math.round(zoomLevel * 100)}%
                 </span>
                 <button
                   type="button"
                   onClick={handleZoomIn}
-                  className="p-1.5 text-slate-400 hover:text-white rounded hover:bg-slate-800 transition-colors"
+                  className="p-1.5 text-cream/70 hover:text-cream rounded hover:bg-white/10 transition-colors"
                   title="Zoom In"
                   aria-label="Zoom In"
                 >
@@ -115,7 +115,7 @@ export default function CertificateModal({ certificate, isOpen, onClose }) {
                   <button
                     type="button"
                     onClick={handleResetZoom}
-                    className="p-1.5 text-sky-400 hover:text-sky-300 rounded hover:bg-slate-800 transition-colors"
+                    className="p-1.5 text-gold hover:text-gold-light rounded hover:bg-white/10 transition-colors"
                     title="Reset Zoom"
                     aria-label="Reset Zoom"
                   >
@@ -130,7 +130,7 @@ export default function CertificateModal({ certificate, isOpen, onClose }) {
               <a
                 href={downloadTarget}
                 download
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-sky-500 hover:bg-sky-400 text-white text-xs font-semibold shadow-sm transition-all"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-gold hover:bg-bronze text-neutralDark-primary hover:text-white text-xs font-semibold shadow-sm transition-all"
                 title="Download Certificate File"
               >
                 <Download className="w-3.5 h-3.5" />
@@ -142,7 +142,7 @@ export default function CertificateModal({ certificate, isOpen, onClose }) {
             <button
               type="button"
               onClick={onClose}
-              className="p-1.5 rounded-lg bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700 transition-colors"
+              className="p-1.5 rounded-lg bg-[#1F1D18] text-cream/70 hover:text-cream hover:bg-white/10 transition-colors"
               aria-label="Close certificate preview"
             >
               <X className="w-5 h-5" />
@@ -151,24 +151,24 @@ export default function CertificateModal({ certificate, isOpen, onClose }) {
         </div>
 
         {/* Certificate Display Area */}
-        <div className="flex-1 overflow-auto p-4 sm:p-6 bg-[#060910] flex items-center justify-center min-h-[340px] max-h-[62vh]">
+        <div className="flex-1 overflow-auto p-4 sm:p-6 bg-[#181612] flex items-center justify-center min-h-[340px] max-h-[62vh]">
           {imageError ? (
             /* Missing file fallback banner */
-            <div className="max-w-md text-center p-8 rounded-2xl bg-slate-900/80 border border-amber-500/30">
-              <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center mx-auto mb-4">
+            <div className="max-w-md text-center p-8 rounded-2xl bg-[#24221D] border border-bronze/40">
+              <div className="w-12 h-12 rounded-xl bg-bronze/10 border border-bronze/30 text-bronze flex items-center justify-center mx-auto mb-4">
                 <AlertCircle className="w-6 h-6" />
               </div>
-              <h4 className="text-base font-bold text-white mb-2">
+              <h4 className="text-base font-bold text-cream mb-2">
                 Certificate Image File Pending
               </h4>
-              <p className="text-xs text-slate-300 leading-relaxed mb-4">
+              <p className="text-xs text-cream/80 leading-relaxed mb-4">
                 Please place the certificate file at:
                 <br />
-                <code className="text-amber-300 font-mono text-[11px] bg-black/40 px-2 py-1 rounded mt-1 inline-block">
+                <code className="text-gold font-mono text-[11px] bg-black/40 px-2 py-1 rounded mt-1 inline-block">
                   {certificate.certificateImage}
                 </code>
               </p>
-              <p className="text-[11px] text-slate-400">
+              <p className="text-[11px] text-taupe-light">
                 The verified credential data from {certificate.organization} is registered in the portfolio.
               </p>
             </div>
@@ -180,7 +180,7 @@ export default function CertificateModal({ certificate, isOpen, onClose }) {
               <img
                 src={certificate.certificateImage}
                 alt={`${certificate.title} issued by ${certificate.organization}`}
-                className="max-h-[58vh] max-w-full object-contain rounded-lg shadow-2xl border border-white/10"
+                className="max-h-[58vh] max-w-full object-contain rounded-lg shadow-2xl border border-taupe/30 bg-white"
                 onError={() => setImageError(true)}
               />
             </div>
@@ -188,16 +188,16 @@ export default function CertificateModal({ certificate, isOpen, onClose }) {
         </div>
 
         {/* Bottom Credential Metadata Bar */}
-        <div className="bg-[#090d16] border-t border-white/[0.08] px-4 sm:px-6 py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <div className="space-y-1.5 text-xs text-slate-300">
+        <div className="bg-[#24221D] border-t border-taupe/40 px-4 sm:px-6 py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-cream">
+          <div className="space-y-1.5 text-xs text-cream/85">
             <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
-              <span className="flex items-center gap-1.5 font-medium text-white">
-                <Building2 className="w-3.5 h-3.5 text-sky-400" />
+              <span className="flex items-center gap-1.5 font-medium text-cream">
+                <Building2 className="w-3.5 h-3.5 text-gold" />
                 {certificate.organization}
               </span>
               {certificate.issueDate && (
-                <span className="flex items-center gap-1 text-slate-400 font-mono">
-                  <Calendar className="w-3.5 h-3.5 text-slate-400" />
+                <span className="flex items-center gap-1 text-cream/70 font-mono">
+                  <Calendar className="w-3.5 h-3.5 text-gold" />
                   Issued: {certificate.issueDate}
                   {certificate.expirationDate && ` &middot; Valid until: ${certificate.expirationDate}`}
                 </span>
@@ -207,16 +207,16 @@ export default function CertificateModal({ certificate, isOpen, onClose }) {
             {/* Validation Number (e.g. AWS) */}
             {certificate.validationNumber && (
               <div className="flex items-center gap-2 pt-0.5">
-                <span className="text-slate-400 font-mono text-[11px]">
+                <span className="text-cream/70 font-mono text-[11px]">
                   Validation Number:
                 </span>
-                <code className="bg-slate-900 border border-white/10 px-2 py-0.5 rounded text-[11px] font-mono text-sky-300 select-all">
+                <code className="bg-[#1F1D18] border border-taupe/30 px-2 py-0.5 rounded text-[11px] font-mono text-gold select-all">
                   {certificate.validationNumber}
                 </code>
                 <button
                   type="button"
                   onClick={() => handleCopyValidation(certificate.validationNumber)}
-                  className="p-1 rounded bg-slate-800 text-slate-400 hover:text-white transition-colors"
+                  className="p-1 rounded bg-[#1F1D18] text-cream/70 hover:text-white transition-colors"
                   title="Copy validation number"
                   aria-label="Copy validation number"
                 >
@@ -227,8 +227,8 @@ export default function CertificateModal({ certificate, isOpen, onClose }) {
 
             {/* QR Code notice (e.g. Cisco) */}
             {certificate.qrNotice && (
-              <div className="flex items-center gap-1.5 text-[11px] font-mono text-emerald-400 pt-0.5">
-                <QrCode className="w-3.5 h-3.5" />
+              <div className="flex items-center gap-1.5 text-[11px] font-mono text-gold-light pt-0.5">
+                <QrCode className="w-3.5 h-3.5 text-gold" />
                 <span>{certificate.qrNotice}</span>
               </div>
             )}
@@ -241,7 +241,7 @@ export default function CertificateModal({ certificate, isOpen, onClose }) {
                 href={certificate.verificationUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-semibold text-xs shadow-md shadow-sky-500/20 transition-all"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gold hover:bg-bronze text-neutralDark-primary hover:text-white font-semibold text-xs shadow-md transition-all"
               >
                 <span>Verify Credential</span>
                 <ExternalLink className="w-3.5 h-3.5" />
@@ -253,9 +253,9 @@ export default function CertificateModal({ certificate, isOpen, onClose }) {
                 href={certificate.certificatePdf}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-medium border border-slate-700 transition-colors"
+                className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#1F1D18] hover:bg-white/10 text-cream text-xs font-medium border border-taupe/30 transition-colors"
               >
-                <FileText className="w-3.5 h-3.5 text-sky-400" />
+                <FileText className="w-3.5 h-3.5 text-gold" />
                 <span>Open Original PDF</span>
               </a>
             )}

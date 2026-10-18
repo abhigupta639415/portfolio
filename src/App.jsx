@@ -37,7 +37,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#080b11] text-slate-100 relative selection:bg-sky-500/30 selection:text-sky-200">
+    <div className="min-h-screen bg-[#FDFBD4] text-[#171717] relative selection:bg-gold/30 selection:text-neutralDark-primary">
       
       {/* Navigation Header */}
       <Navbar onOpenResume={handleOpenResume} />

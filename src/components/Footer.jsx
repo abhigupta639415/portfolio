@@ -8,21 +8,21 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#05080e] border-t border-white/[0.08] py-12 relative">
+    <footer className="bg-[#1F1D18] border-t border-taupe/30 py-12 relative text-cream">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-white/[0.06]">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-taupe/20">
           {/* Left: Branding & Role */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-[#0d131f] border border-sky-500/40 flex items-center justify-center font-mono font-bold text-sky-400 text-xs">
+              <div className="w-8 h-8 rounded-lg bg-[#24221D] border border-gold/50 flex items-center justify-center font-mono font-bold text-gold text-xs shadow-sm">
                 AG
               </div>
-              <span className="text-base font-bold text-white tracking-tight">
+              <span className="text-base font-bold text-cream tracking-tight">
                 {personalInfo.name}
               </span>
             </div>
-            <p className="text-xs font-mono text-slate-400 mt-1">
+            <p className="text-xs font-mono text-[#BDB76B] mt-1">
               {personalInfo.primaryTitle}
             </p>
           </div>
@@ -33,7 +33,7 @@ export default function Footer() {
               href={personalInfo.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2.5 rounded-xl bg-slate-900 border border-white/5 text-slate-400 hover:text-white hover:border-slate-600 transition-colors"
+              className="p-2.5 rounded-xl bg-[#24221D] border border-taupe/30 text-cream/80 hover:text-white hover:border-gold transition-colors"
               aria-label="GitHub Profile"
             >
               <Github className="w-4 h-4" />
@@ -43,7 +43,7 @@ export default function Footer() {
               href={personalInfo.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2.5 rounded-xl bg-slate-900 border border-white/5 text-slate-400 hover:text-sky-400 hover:border-sky-500/40 transition-colors"
+              className="p-2.5 rounded-xl bg-[#24221D] border border-taupe/30 text-cream/80 hover:text-gold hover:border-gold transition-colors"
               aria-label="LinkedIn Profile"
             >
               <Linkedin className="w-4 h-4" />
@@ -53,7 +53,7 @@ export default function Footer() {
               href={personalInfo.leetcode}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2.5 rounded-xl bg-slate-900 border border-white/5 text-slate-400 hover:text-amber-400 hover:border-amber-500/40 transition-colors"
+              className="p-2.5 rounded-xl bg-[#24221D] border border-taupe/30 text-cream/80 hover:text-bronze hover:border-bronze transition-colors"
               aria-label="LeetCode Profile"
             >
               <Code2 className="w-4 h-4" />
@@ -61,7 +61,7 @@ export default function Footer() {
 
             <a
               href={`mailto:${personalInfo.email}`}
-              className="p-2.5 rounded-xl bg-slate-900 border border-white/5 text-slate-400 hover:text-emerald-400 hover:border-emerald-500/40 transition-colors"
+              className="p-2.5 rounded-xl bg-[#24221D] border border-taupe/30 text-cream/80 hover:text-gold hover:border-gold transition-colors"
               aria-label="Send Email"
             >
               <Mail className="w-4 h-4" />
@@ -72,7 +72,7 @@ export default function Footer() {
           <div>
             <button
               onClick={scrollToTop}
-              className="inline-flex items-center gap-1.5 text-xs font-mono text-slate-400 hover:text-sky-300 transition-colors p-2 rounded-lg hover:bg-slate-900"
+              className="inline-flex items-center gap-1.5 text-xs font-mono text-cream/70 hover:text-gold transition-colors p-2 rounded-lg hover:bg-[#24221D] cursor-pointer"
               aria-label="Scroll to top of page"
             >
               <span>Back to Top</span>
@@ -82,12 +82,12 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-slate-500 gap-2 text-center sm:text-left">
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-cream/60 gap-2 text-center sm:text-left">
           <div>
             &copy; 2026 Abhishek Gupta. All rights reserved.
           </div>
-          <div className="text-slate-600">
-            Engineered with React & Tailwind CSS &middot; Recruiter Optimized
+          <div className="text-cream/50">
+            Engineered with React & Tailwind CSS &middot; Recruiter Optimized &middot; Golden Taupe Palette
           </div>
         </div>
 

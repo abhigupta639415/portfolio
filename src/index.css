@@ -5,60 +5,79 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    color-scheme: dark;
+    color-scheme: light;
   }
   
   body {
-    background-color: #080b11;
-    color: #e2e8f0;
+    background-color: #FDFBD4;
+    color: #171717;
     overflow-x: hidden;
   }
 
-  /* Custom scrollbar for recruiter-grade polish */
+  /* Custom scrollbar for Golden Taupe palette */
   ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: #080b11;
+    background: #FDFBD4;
   }
   ::-webkit-scrollbar-thumb {
-    background: #1e293b;
+    background: #BDB76B;
     border-radius: 4px;
-    border: 2px solid #080b11;
+    border: 2px solid #FDFBD4;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #334155;
+    background: #D4AF37;
   }
 
   /* Accessible focus styling */
   :focus-visible {
-    outline: 2px solid #38bdf8;
+    outline: 2px solid #D4AF37;
     outline-offset: 2px;
   }
 }
 
 @layer utilities {
-  .text-glow-sky {
-    text-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+  .border-taupe {
+    border-color: rgba(189, 183, 107, 0.35);
   }
-  .glass-panel {
-    background: rgba(13, 19, 31, 0.75);
+  .bg-cream {
+    background-color: #FDFBD4;
+  }
+  .bg-dark-section {
+    background-color: #24221D;
+  }
+  .text-gold {
+    color: #D4AF37;
+  }
+  .text-bronze {
+    color: #CE8946;
+  }
+  .text-secondary {
+    color: #5F5B50;
+  }
+  .gold-gradient-text {
+    background: linear-gradient(135deg, #B58D20 0%, #D4AF37 50%, #CE8946 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .glass-navbar {
+    background-color: rgba(253, 251, 212, 0.88);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-bottom: 1px solid rgba(189, 183, 107, 0.35);
   }
-  .glass-card {
-    background: rgba(18, 26, 43, 0.6);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+  .card-cream {
+    background-color: #FFFFFF;
+    border: 1px solid rgba(189, 183, 107, 0.35);
+    box-shadow: 0 4px 20px -2px rgba(95, 91, 80, 0.06);
     transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  .glass-card:hover {
-    background: rgba(22, 32, 54, 0.8);
-    border-color: rgba(56, 189, 248, 0.3);
-    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 0 20px -5px rgba(56, 189, 248, 0.15);
+  .card-cream:hover {
+    border-color: #D4AF37;
+    box-shadow: 0 10px 25px -4px rgba(212, 175, 55, 0.2), 0 0 0 1px #D4AF37;
+    transform: translateY(-2px);
   }
 }
 

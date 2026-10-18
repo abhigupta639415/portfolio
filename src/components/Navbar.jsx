@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, FileText, ExternalLink, ArrowUpRight } from 'lucide-react';
+import { Menu, X, FileText } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
 const navLinks = [
@@ -19,13 +19,8 @@ export default function Navbar({ onOpenResume }) {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 40) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 30);
 
-      // Determine active section based on scroll position
       const sections = ['hero', 'about', 'experience', 'projects', 'skills', 'achievements', 'contact'];
       const scrollPosition = window.scrollY + 120;
 
@@ -58,8 +53,8 @@ export default function Navbar({ onOpenResume }) {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'py-3 bg-[#080b11]/90 backdrop-blur-md border-b border-white/[0.08] shadow-lg shadow-black/40'
-          : 'py-5 bg-transparent'
+          ? 'py-3 bg-[#FDFBD4]/90 backdrop-blur-md border-b border-[#BDB76B]/35 shadow-sm'
+          : 'py-5 bg-[#FDFBD4]/60 backdrop-blur-sm'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -71,25 +66,25 @@ export default function Navbar({ onOpenResume }) {
             className="flex items-center gap-3 group focus:outline-none"
             aria-label="Abhishek Gupta - Home"
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-400 via-blue-600 to-indigo-600 p-[1px] shadow-sm group-hover:shadow-glow-sm transition-all duration-300">
-              <div className="w-full h-full bg-[#0d131f] rounded-[11px] flex items-center justify-center">
-                <span className="font-mono font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-300 text-sm tracking-wider">
+            <div className="w-10 h-10 rounded-xl bg-[#D4AF37] p-[1.5px] shadow-sm group-hover:shadow-md group-hover:bg-[#CE8946] transition-all duration-300">
+              <div className="w-full h-full bg-[#FDFBD4] rounded-[10px] flex items-center justify-center">
+                <span className="font-mono font-bold text-[#171717] text-sm tracking-wider">
                   AG
                 </span>
               </div>
             </div>
             <div className="flex flex-col">
-              <span className="font-semibold text-sm tracking-tight text-white group-hover:text-sky-300 transition-colors">
+              <span className="font-bold text-sm tracking-tight text-[#171717] group-hover:text-[#CE8946] transition-colors">
                 Abhishek Gupta
               </span>
-              <span className="text-[11px] font-mono text-slate-400 leading-none">
+              <span className="text-[11px] font-mono text-[#5F5B50] leading-none">
                 Full-Stack &middot; AI
               </span>
             </div>
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-1 bg-[#0d131f]/70 border border-white/[0.06] rounded-full px-4 py-1.5 backdrop-blur-sm">
+          <nav className="hidden md:flex items-center gap-1 bg-[#FFFFFF]/80 border border-[#BDB76B]/35 rounded-full px-4 py-1.5 shadow-sm backdrop-blur-sm">
             {navLinks.map((link) => {
               const isActive = activeSection === link.href.replace('#', '');
               return (
@@ -97,10 +92,10 @@ export default function Navbar({ onOpenResume }) {
                   key={link.name}
                   href={link.href}
                   onClick={(e) => handleLinkClick(e, link.href)}
-                  className={`text-xs font-medium px-3 py-1.5 rounded-full transition-all duration-200 ${
+                  className={`text-xs font-semibold px-3 py-1.5 rounded-full transition-all duration-200 ${
                     isActive
-                      ? 'text-sky-300 bg-white/[0.08] shadow-sm font-semibold'
-                      : 'text-slate-300 hover:text-white hover:bg-white/[0.04]'
+                      ? 'text-[#171717] bg-[#D4AF37] shadow-sm'
+                      : 'text-[#24221D] hover:text-[#CE8946] hover:bg-[#FDFBD4]'
                   }`}
                 >
                   {link.name}
@@ -113,10 +108,10 @@ export default function Navbar({ onOpenResume }) {
           <div className="flex items-center gap-3">
             <button
               onClick={onOpenResume}
-              className="inline-flex items-center gap-2 text-xs font-semibold px-4 py-2 rounded-lg bg-gradient-to-r from-sky-500/15 via-blue-500/15 to-indigo-500/15 border border-sky-400/30 text-sky-300 hover:text-white hover:border-sky-400 hover:bg-sky-500/25 transition-all duration-200 shadow-sm"
+              className="inline-flex items-center gap-2 text-xs font-bold px-4 py-2 rounded-xl bg-[#D4AF37] hover:bg-[#CE8946] text-[#171717] hover:text-white transition-all duration-200 shadow-sm"
               aria-label="View and Download Resume"
             >
-              <FileText className="w-3.5 h-3.5 text-sky-400" />
+              <FileText className="w-3.5 h-3.5" />
               <span>Resume</span>
             </button>
 
@@ -124,7 +119,7 @@ export default function Navbar({ onOpenResume }) {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 rounded-lg bg-[#0d131f] border border-white/10 text-slate-300 hover:text-white focus:outline-none"
+              className="md:hidden p-2 rounded-xl bg-[#FFFFFF] border border-[#BDB76B]/35 text-[#24221D] hover:text-[#CE8946] focus:outline-none"
               aria-label={mobileMenuOpen ? 'Close Menu' : 'Open Menu'}
               aria-expanded={mobileMenuOpen}
             >
@@ -136,7 +131,7 @@ export default function Navbar({ onOpenResume }) {
 
       {/* Mobile Dropdown Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden mt-3 px-4 pt-2 pb-4 bg-[#0d131f]/98 backdrop-blur-xl border-b border-white/10 shadow-2xl transition-all">
+        <div className="md:hidden mt-3 px-4 pt-2 pb-4 bg-[#FDFBD4] border-b border-[#BDB76B]/35 shadow-xl transition-all">
           <div className="flex flex-col space-y-1">
             {navLinks.map((link) => {
               const isActive = activeSection === link.href.replace('#', '');
@@ -145,23 +140,23 @@ export default function Navbar({ onOpenResume }) {
                   key={link.name}
                   href={link.href}
                   onClick={(e) => handleLinkClick(e, link.href)}
-                  className={`px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+                  className={`px-3 py-2.5 rounded-lg text-sm font-semibold transition-colors ${
                     isActive
-                      ? 'bg-sky-500/15 text-sky-300 font-semibold border-l-2 border-sky-400'
-                      : 'text-slate-300 hover:bg-white/5 hover:text-white'
+                      ? 'bg-[#D4AF37] text-[#171717] border-l-4 border-[#CE8946]'
+                      : 'text-[#24221D] hover:bg-[#FFFFFF] hover:text-[#CE8946]'
                   }`}
                 >
                   {link.name}
                 </a>
               );
             })}
-            <div className="pt-2 border-t border-white/10 flex gap-2">
+            <div className="pt-2 border-t border-[#BDB76B]/35 flex gap-2">
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
                   onOpenResume();
                 }}
-                className="w-full py-2.5 text-center text-xs font-semibold rounded-lg bg-sky-500 text-white flex items-center justify-center gap-2 shadow-sm"
+                className="w-full py-2.5 text-center text-xs font-bold rounded-xl bg-[#D4AF37] hover:bg-[#CE8946] text-[#171717] hover:text-white flex items-center justify-center gap-2 shadow-sm"
               >
                 <FileText className="w-3.5 h-3.5" />
                 View & Download Resume
