@@ -1,20 +1,30 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import {
   ArrowDown,
   Download,
   Mail,
   Github,
   Linkedin,
-  Code2,
-  Layers,
-  Sparkles,
-  Server,
-  Database,
-  ExternalLink,
-  ShieldCheck,
-  CheckCircle2
+  Code2
 } from 'lucide-react';
 import { personalInfo, heroData } from '../data/portfolioData';
+
+const Hero3DScene = lazy(() => import('./3d/Hero3DScene'));
+
+function Hero3DPlaceholder() {
+  return (
+    <div className="relative w-full h-[360px] sm:h-[420px] lg:h-[480px] rounded-3xl overflow-hidden flex items-center justify-center bg-[#FFFFFF]/40 dark:bg-[#1D1D1A]/40 border border-[#E7E3D8] dark:border-[#34332E]">
+      <div className="flex flex-col items-center gap-3">
+        <div className="w-10 h-10 rounded-2xl bg-[#F4E8C1] dark:bg-[#29281F] flex items-center justify-center">
+          <span className="w-2.5 h-2.5 rounded-full bg-[#C49A2C] dark:bg-[#D4AF37] animate-pulse" />
+        </div>
+        <span className="text-xs font-mono text-[#66645F] dark:text-[#B7B4AA]">
+          Loading 3D Workspace...
+        </span>
+      </div>
+    </div>
+  );
+}
 
 export default function Hero({ onOpenResume }) {
   const scrollToSection = (id) => {
@@ -162,100 +172,11 @@ export default function Hero({ onOpenResume }) {
 
           </div>
 
-          {/* Right Column: Clean Visual Composition (Authentic Engineering Spotlight) */}
-          <div className="lg:col-span-5 w-full">
-            <div className="relative rounded-2xl bg-[#FFFFFF] dark:bg-[#1D1D1A] border border-[#E7E3D8] dark:border-[#34332E] p-6 sm:p-7 shadow-xs">
-              
-              {/* Header */}
-              <div className="flex items-center justify-between pb-4 border-b border-[#E7E3D8] dark:border-[#34332E] mb-5">
-                <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#C49A2C] dark:bg-[#D4AF37]" />
-                  <span className="text-xs font-mono font-semibold uppercase tracking-wider text-[#171717] dark:text-[#F5F3EA]">
-                    Engineering Focus
-                  </span>
-                </div>
-                <span className="text-[11px] font-mono text-[#66645F] dark:text-[#B7B4AA]">
-                  Full-Stack &middot; AI
-                </span>
-              </div>
-
-              {/* 4 Core Pillars of Abhishek's Engineering */}
-              <div className="space-y-3.5">
-                
-                {/* 1. Full-Stack Web Applications */}
-                <div className="p-3.5 rounded-xl bg-[#FAFAF8] dark:bg-[#23231F] border border-[#E7E3D8] dark:border-[#34332E] flex items-start gap-3.5">
-                  <div className="p-2 rounded-lg bg-[#F4E8C1] dark:bg-[#29281F] text-[#C49A2C] dark:text-[#D4AF37] shrink-0 mt-0.5">
-                    <Layers className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <h3 className="text-xs font-bold text-[#171717] dark:text-[#F5F3EA]">
-                      Modern Frontend Architecture
-                    </h3>
-                    <p className="text-[11px] text-[#66645F] dark:text-[#B7B4AA] mt-0.5 leading-normal">
-                      React.js, Redux Toolkit, Tailwind CSS, code-splitting with React.lazy().
-                    </p>
-                  </div>
-                </div>
-
-                {/* 2. Scalable Backend & APIs */}
-                <div className="p-3.5 rounded-xl bg-[#FAFAF8] dark:bg-[#23231F] border border-[#E7E3D8] dark:border-[#34332E] flex items-start gap-3.5">
-                  <div className="p-2 rounded-lg bg-[#F4E8C1] dark:bg-[#29281F] text-[#CE8946] shrink-0 mt-0.5">
-                    <Server className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <h3 className="text-xs font-bold text-[#171717] dark:text-[#F5F3EA]">
-                      Backend Systems & REST APIs
-                    </h3>
-                    <p className="text-[11px] text-[#66645F] dark:text-[#B7B4AA] mt-0.5 leading-normal">
-                      Node.js, Express.js, MongoDB schemas, JWT authentication, and OTP verification.
-                    </p>
-                  </div>
-                </div>
-
-                {/* 3. Real-World AI Integration */}
-                <div className="p-3.5 rounded-xl bg-[#FAFAF8] dark:bg-[#23231F] border border-[#E7E3D8] dark:border-[#34332E] flex items-start gap-3.5">
-                  <div className="p-2 rounded-lg bg-[#F4E8C1] dark:bg-[#29281F] text-[#C49A2C] dark:text-[#D4AF37] shrink-0 mt-0.5">
-                    <Sparkles className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <h3 className="text-xs font-bold text-[#171717] dark:text-[#F5F3EA]">
-                      Generative AI & Multimodal APIs
-                    </h3>
-                    <p className="text-[11px] text-[#66645F] dark:text-[#B7B4AA] mt-0.5 leading-normal">
-                      Production integration with OpenAI GPT and Google Gemini Vision models.
-                    </p>
-                  </div>
-                </div>
-
-                {/* 4. Algorithmic Rigor & Cloud */}
-                <div className="p-3.5 rounded-xl bg-[#FAFAF8] dark:bg-[#23231F] border border-[#E7E3D8] dark:border-[#34332E] flex items-start gap-3.5">
-                  <div className="p-2 rounded-lg bg-[#F4E8C1] dark:bg-[#29281F] text-[#CE8946] shrink-0 mt-0.5">
-                    <CheckCircle2 className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <h3 className="text-xs font-bold text-[#171717] dark:text-[#F5F3EA]">
-                      Cloud & Problem Solving
-                    </h3>
-                    <p className="text-[11px] text-[#66645F] dark:text-[#B7B4AA] mt-0.5 leading-normal">
-                      AWS Certified Cloud Practitioner, Cisco Networking, and 250+ LeetCode problems.
-                    </p>
-                  </div>
-                </div>
-
-              </div>
-
-              {/* Footer status bar */}
-              <div className="mt-5 pt-3.5 border-t border-[#E7E3D8] dark:border-[#34332E] flex items-center justify-between text-[11px] font-mono text-[#66645F] dark:text-[#B7B4AA]">
-                <span className="flex items-center gap-1.5">
-                  <ShieldCheck className="w-3.5 h-3.5 text-[#C49A2C] dark:text-[#D4AF37]" />
-                  Verified Credentials
-                </span>
-                <span className="text-[#C49A2C] dark:text-[#D4AF37] font-semibold">
-                  KIET Group &bull; 2023–2027
-                </span>
-              </div>
-
-            </div>
+          {/* Right Column: Premium Interactive 3D Engineering Workspace */}
+          <div className="lg:col-span-5 w-full flex items-center justify-center">
+            <Suspense fallback={<Hero3DPlaceholder />}>
+              <Hero3DScene />
+            </Suspense>
           </div>
 
         </div>

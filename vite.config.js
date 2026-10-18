@@ -13,5 +13,15 @@ export default defineConfig({
     port: 4173,
     host: '0.0.0.0',
     allowedHosts: true,
-  }
+  },
+  build: {
+    chunkSizeWarningLimit: 800,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          three: ['three'],
+        },
+      },
+    },
+  },
 })
