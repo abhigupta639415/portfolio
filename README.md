@@ -20,7 +20,20 @@ Live Preview & Production Build:
      - **AWS Certified Cloud Practitioner**
    - Quick action bar: Instant "Copy Email", "Copy Phone", "Resume PDF", and "Projects".
 
-2. **Featured Projects (Production Live Deployments)**:
+2. **Verified Credentials & Certifications (Interactive Modal)**:
+   - **Certifications**:
+     - *AWS Certified Cloud Practitioner* (Issue: Feb 23, 2026 | Exp: Feb 23, 2029 | Val: `2464558ea06b42a0a2adffc4420af489` | Direct AWS verification link)
+     - *Cisco Networking Academy* (Network Technician Career Path | Course Completion: Apr 15, 2026 | Scan QR code on certificate to verify)
+   - **Internships**:
+     - *MLSA KIET* (100-Hour Full Stack Web Development Internship | Official GitHub repository PR submission)
+     - *Codveda Technologies* (Web Development Intern | Nov–Dec 2025 | Issued: Jan 05, 2026 | Direct certificate preview in both Experience & Credentials sections)
+   - **Achievements**:
+     - *Smart India Hackathon 2025* (Institute Finalist among 100+ teams)
+     - *INNOTECH 2025* (Certificate of Achievement | KIET Group of Institutions | Nov 14, 2025)
+     - *250+ LeetCode Problems* (DSA & algorithmic problem solving)
+   - **Reusable CertificateModal**: High-resolution image preview, responsive design, ESC/backdrop dismissal, zoom controls, download options, and direct verification URLs.
+
+3. **Featured Projects (Production Live Deployments)**:
    - **NetflixGPT**: AI-powered movie discovery platform integrating OpenAI GPT API, Firebase Auth, TMDB API, and Redux Toolkit.
      - *Performance:* ~31% initial bundle size reduction via route-level code splitting (`React.lazy()` & `Suspense`).
      - *Live Demo:* [netflixgpt-khaki.vercel.app](https://netflixgpt-khaki.vercel.app/)

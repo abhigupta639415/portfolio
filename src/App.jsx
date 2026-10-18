@@ -3,8 +3,8 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import RecruiterQuickView from './components/RecruiterQuickView';
 import About from './components/About';
-import Education from './components/Education';
 import Experience from './components/Experience';
+import Education from './components/Education';
 import Specializations from './components/Specializations';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
@@ -14,9 +14,11 @@ import ResumeSection from './components/ResumeSection';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ResumeModal from './components/ResumeModal';
+import CertificateModal from './components/CertificateModal';
 
 export default function App() {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
+  const [selectedCertificate, setSelectedCertificate] = useState(null);
 
   const handleOpenResume = () => {
     setIsResumeOpen(true);
@@ -24,6 +26,14 @@ export default function App() {
 
   const handleCloseResume = () => {
     setIsResumeOpen(false);
+  };
+
+  const handleOpenCertificate = (certificate) => {
+    setSelectedCertificate(certificate);
+  };
+
+  const handleCloseCertificate = () => {
+    setSelectedCertificate(null);
   };
 
   return (
@@ -43,8 +53,8 @@ export default function App() {
         {/* 2. About Me */}
         <About />
 
-        {/* 3. Experience */}
-        <Experience />
+        {/* 3. Work Experience */}
+        <Experience onOpenCertificate={handleOpenCertificate} />
 
         {/* 4. Education */}
         <Education />
@@ -52,17 +62,17 @@ export default function App() {
         {/* 5. What I Build / Specializations */}
         <Specializations />
 
-        {/* 6. Projects */}
+        {/* 6. Featured Projects */}
         <Projects />
 
-        {/* 7. Skills */}
+        {/* 7. Technical Skills */}
         <Skills />
 
         {/* 8. Problem Solving */}
         <ProblemSolving />
 
-        {/* 9. Achievements */}
-        <Achievements />
+        {/* 9. Certifications & Achievements (Credentials) */}
+        <Achievements onOpenCertificate={handleOpenCertificate} />
 
         {/* 10. Resume Call-to-Action */}
         <ResumeSection onOpenResume={handleOpenResume} />
@@ -78,6 +88,13 @@ export default function App() {
       <ResumeModal
         isOpen={isResumeOpen}
         onClose={handleCloseResume}
+      />
+
+      {/* Reusable Certificate Preview Modal */}
+      <CertificateModal
+        certificate={selectedCertificate}
+        isOpen={Boolean(selectedCertificate)}
+        onClose={handleCloseCertificate}
       />
 
     </div>

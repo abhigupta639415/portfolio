@@ -8,7 +8,7 @@ export const personalInfo = {
   github: "https://github.com/abhigupta639415",
   linkedin: "https://www.linkedin.com/in/abhishek-gupta-719b3a276",
   leetcode: "https://leetcode.com/u/abhishek639415/",
-  resumePdfUrl: "/Abhishek_Gupta_Resume.pdf", // easy to replace with updated PDF file
+  resumePdfUrl: "/Abhishek_Gupta_Resume.pdf",
 };
 
 export const heroData = {
@@ -63,7 +63,26 @@ export const experienceData = [
       "Built responsive interfaces for food listings, menus, and ordering workflows across 15+ pages using React.js, JavaScript, HTML5, and CSS3.",
       "Delivered interactive frontend features using component-based architecture, reducing UI-related bugs by 20% and improving consistency across the platform."
     ],
-    technologies: ["React.js", "JavaScript", "HTML5", "CSS3"]
+    technologies: ["React.js", "JavaScript", "HTML5", "CSS3"],
+    certificate: {
+      id: "codveda-internship",
+      title: "Web Development Intern",
+      organization: "Codveda Technologies",
+      duration: "November 2025 – December 2025",
+      issueDate: "05 January 2026",
+      badge: "Verified Internship",
+      type: "Internship / Experience",
+      description: "Successfully completed an internship as a Web Development Intern with Codveda Technologies from November 2025 to December 2025.",
+      recognizes: [
+        "Web Development skills",
+        "Effective communication",
+        "Attention to detail",
+        "Commitment to learning",
+        "Completion of assignments and challenges"
+      ],
+      certificateImage: "/certificates/codveda-web-development-internship.png",
+      hasCertificate: true
+    }
   }
 ];
 
@@ -251,29 +270,174 @@ export const skillsData = {
   }
 };
 
-export const achievementsData = [
-  {
-    title: "AWS Certified Cloud Practitioner",
-    description: "Validated knowledge of cloud fundamentals and core AWS services including EC2, S3, and IAM.",
-    badge: "AWS Certified",
-    icon: "Cloud",
-    type: "Cloud Certification"
-  },
-  {
-    title: "Smart India Hackathon 2025",
-    description: "Selected at institute level among 100+ teams for developing an innovative technology-driven solution in a team-based national hackathon.",
-    badge: "Institute Finalist",
-    icon: "Trophy",
-    type: "National Hackathon"
-  },
-  {
-    title: "250+ LeetCode Problems",
-    description: "Solved 250+ Data Structures and Algorithms problems covering arrays, strings, linked lists, recursion, searching, sorting, greedy algorithms, and dynamic programming.",
-    badge: "250+ Solved",
-    icon: "Terminal",
-    type: "Algorithms & DSA"
-  }
-];
+export const credentialsData = {
+  heading: "Certifications & Achievements",
+  subtitle: "Verified credentials, internships, and achievements that reflect my technical growth and hands-on experience.",
+  categories: [
+    {
+      id: "certifications",
+      name: "Certifications",
+      description: "Industry and vendor-validated credentials verifying cloud and network engineering competencies.",
+      items: [
+        {
+          id: "aws-cloud-practitioner",
+          title: "AWS Certified Cloud Practitioner",
+          organization: "Amazon Web Services",
+          recipient: "Abhishek Gupta",
+          issueDate: "Feb 23, 2026",
+          expirationDate: "Feb 23, 2029",
+          validationNumber: "2464558ea06b42a0a2adffc4420af489",
+          verificationUrl: "https://aws.amazon.com/verification",
+          badge: "AWS Certified",
+          type: "Cloud Certification",
+          iconType: "Cloud",
+          certificateImage: "/certificates/aws-cloud-practitioner.png",
+          certificatePdf: "/certificates/aws-cloud-practitioner.pdf",
+          description: "Validated knowledge of cloud fundamentals and core AWS services including EC2, S3, and IAM.",
+          hasCertificate: true,
+          actionButtons: [
+            { label: "View Certificate", action: "preview", primary: true },
+            { label: "Verify Credential ↗", action: "verify", url: "https://aws.amazon.com/verification" }
+          ]
+        },
+        {
+          id: "cisco-network-technician",
+          title: "Network Technician Career Path",
+          organization: "Cisco Networking Academy",
+          certificateType: "Certificate of Course Completion",
+          recipient: "Abhishek Gupta",
+          issueDate: "Apr 15, 2026",
+          badge: "Cisco Verified",
+          type: "Course Completion",
+          iconType: "Network",
+          certificateImage: "/certificates/cisco-network-technician-career-path.png",
+          certificatePdf: "/certificates/cisco-network-technician-career-path.pdf",
+          qrNotice: "Scan QR code on certificate to verify",
+          description: "Successfully achieved the student-level credential for completing the Network Technician Career Path through Cisco Networking Academy.",
+          skillsCovered: [
+            "Network standards and protocols",
+            "Communication on Ethernet networks",
+            "IPv4 and IPv6 addressing",
+            "Wireless router configuration & secure internet connectivity",
+            "Switched network operation",
+            "Transport-layer protocols",
+            "DNS and DHCP",
+            "Network-layer protocols and routing",
+            "Network troubleshooting methodologies",
+            "Secure user access on a network"
+          ],
+          hasCertificate: true,
+          actionButtons: [
+            { label: "View Certificate", action: "preview", primary: true }
+          ]
+        }
+      ]
+    },
+    {
+      id: "internships",
+      name: "Internships",
+      description: "Practical engineering experience building real-world web applications and frontend architectures.",
+      items: [
+        {
+          id: "mlsa-internship",
+          title: "100-Hour Full Stack Web Development Internship",
+          organization: "MLSA KIET",
+          program: "100-Hour Internship",
+          domain: "Full Stack Web Development",
+          badge: "100-Hour Program",
+          type: "Internship / Experience",
+          iconType: "Briefcase",
+          issueDate: "Completed",
+          description: "Successfully completed a 100-hour internship offered by MLSA KIET in the Full Stack Web Development domain, gaining hands-on experience in developing end-to-end web applications.",
+          additionalAchievement: "Successfully submitted a Pull Request to the official MLSA KIET GitHub repository as part of the program.",
+          certificateImage: "/certificates/mlsa-full-stack-internship.png",
+          hasCertificate: true,
+          isPendingUpload: false,
+          actionButtons: [
+            { label: "View Certificate", action: "preview", primary: true }
+          ]
+        },
+        {
+          id: "codveda-internship",
+          title: "Web Development Intern",
+          organization: "Codveda Technologies",
+          duration: "November 2025 – December 2025",
+          issueDate: "05 January 2026",
+          badge: "Internship Completion",
+          type: "Internship / Experience",
+          iconType: "Briefcase",
+          description: "Successfully completed an internship as a Web Development Intern with Codveda Technologies from November 2025 to December 2025.",
+          recognizes: [
+            "Web Development skills",
+            "Effective communication",
+            "Attention to detail",
+            "Commitment to learning",
+            "Completion of assignments and challenges"
+          ],
+          certificateImage: "/certificates/codveda-web-development-internship.png",
+          hasCertificate: true,
+          actionButtons: [
+            { label: "View Certificate", action: "preview", primary: true }
+          ]
+        }
+      ]
+    },
+    {
+      id: "achievements",
+      name: "Achievements",
+      description: "Competitive hackathon recognitions, technical fest awards, and algorithmic milestones.",
+      items: [
+        {
+          id: "sih-2025",
+          title: "Smart India Hackathon 2025",
+          organization: "Ministry of Education & AICTE",
+          badge: "Institute Finalist",
+          type: "National Hackathon",
+          iconType: "Trophy",
+          issueDate: "2025",
+          description: "Selected at institute level among 100+ teams for developing an innovative technology-driven solution in a team-based national hackathon.",
+          hasCertificate: false,
+        },
+        {
+          id: "innotech-2025",
+          title: "INNOTECH 2025 — Certificate of Achievement",
+          organization: "KIET Group of Institutions",
+          event: "INNOTECH 2025",
+          issueDate: "14 November 2025",
+          certificateType: "Certificate of Achievement",
+          recipient: "Abhishek Gupta",
+          badge: "Certificate of Achievement",
+          type: "Innovation & Tech Fest",
+          iconType: "Award",
+          description: "Recognized for active participation in INNOTECH on 14 November 2025, demonstrating innovation, teamwork, and a spirit of learning in the event conducted by KIET Group of Institutions.",
+          certificateImage: "/certificates/innotech-2025-achievement.png",
+          hasCertificate: true,
+          actionButtons: [
+            { label: "View Certificate", action: "preview", primary: true }
+          ]
+        },
+        {
+          id: "leetcode-250",
+          title: "250+ LeetCode Problems",
+          organization: "LeetCode",
+          badge: "250+ Solved",
+          type: "Algorithms & DSA",
+          iconType: "Terminal",
+          issueDate: "Ongoing",
+          description: "Solved 250+ Data Structures and Algorithms problems covering arrays, strings, linked lists, recursion, searching, sorting, greedy algorithms, and dynamic programming.",
+          externalUrl: "https://leetcode.com/u/abhishek639415/",
+          hasCertificate: false,
+          actionButtons: [
+            { label: "View LeetCode Profile ↗", action: "link", url: "https://leetcode.com/u/abhishek639415/" }
+          ]
+        }
+      ]
+    }
+  ]
+};
+
+// Backward compatibility alias for any existing imports
+export const achievementsData = credentialsData.categories.find(c => c.id === 'achievements').items;
 
 export const problemSolvingData = {
   heading: "Problem Solving",
